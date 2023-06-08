@@ -11,74 +11,80 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return (Scaffold(
-      appBar: AppBar(
-        title: Text("home"),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Hello Carlos,",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  "What are you cooking today?",
-                  style: TextStyle(
-                      fontSize: 11, fontFamily: "Poppins", color: Colors.grey),
-                ),
-              ],
-            )
-          ],
+    return
+      Scaffold(
+        appBar: AppBar(
+          title: Text("home"),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0,
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return Dialog(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.5,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          onPressed: null,
-
-                          child: Text(
-                            "select pictures",
-                            style: TextStyle(fontFamily: "Poppins"),
-                          )),
-                    ],
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(40, 5, 20, 5),
+          child: Column(
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-              );
-            },
-          );
-        },
-        backgroundColor: AppColors.primaryColor,
-        elevation: 0,
-        child: SvgPicture.asset(
-          'icons/plus.svg',
-          width: 24,
-          height: 24,
+                  Text(
+                    "Hello Carlos,",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    "What are you cooking today?",
+                    style: TextStyle(
+                        fontSize: 11,
+                        fontFamily: "Poppins",
+                        color: Colors.grey),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: FooterViewModel(),
-    ));
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return Dialog(
+                  child: Container(
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.5,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                            onPressed: null,
+
+                            child: Text(
+                              "select pictures",
+                              style: TextStyle(fontFamily: "Poppins"),
+                            )),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+          backgroundColor: AppColors.primaryColor,
+          elevation: 0,
+          child: SvgPicture.asset(
+            'icons/plus.svg',
+            width: 24,
+            height: 24,
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: FooterViewModel()
+      );
   }
 }
