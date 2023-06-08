@@ -1,3 +1,4 @@
+import 'package:app/view_models/footer_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,11 +22,23 @@ class _HomeViewState extends State<HomeView> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Center(
-              child: Row(
-                children: [Text("Home page ")],
-              ),
-            ),
+            Column(
+              children: [
+                SizedBox(height: 20,),
+                Text(
+                  "Hello Carlos,",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  "What are you cooking today?",
+                  style: TextStyle(
+                      fontSize: 11, fontFamily: "Poppins", color: Colors.grey),
+                ),
+              ],
+            )
           ],
         ),
       ),
@@ -44,54 +57,7 @@ class _HomeViewState extends State<HomeView> {
         ), //icon inside button
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        //bottom navigation bar on scaffold
-        color: Colors.white,
-        elevation: 1,
-        shape: CircularNotchedRectangle(),
-        //shape of notch
-        notchMargin: 6,
-        height: 70,
-        shadowColor: Colors.grey[50],
-        //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-                icon: SvgPicture.asset(
-                    'icons/homeIcon.svg',
-                    width: 24,
-                    height: 24
-                ),
-                onPressed: null //do something,
-                ),
-            IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.print,
-                color: Colors.black,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon:SvgPicture.asset(
-                  'icons/profile.svg',
-                  width: 24,
-                  height: 24
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: FooterViewModel(),
     ));
   }
 }
