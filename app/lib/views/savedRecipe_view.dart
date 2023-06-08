@@ -20,6 +20,7 @@ class _SavedRecipeViewState extends State<SavedRecipeView> {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
