@@ -30,11 +30,15 @@ class FooterViewModel extends StatelessWidget{
                 colorBlendMode: BlendMode.srcIn,
                 // Remove the color property
               ),
-              onPressed: null //do something,
+              onPressed: (){
+                Navigator.pushNamed(context, "/home");
+              } //do something,
           ),
           IconButton(
             icon: SvgPicture.asset('icons/Union.svg', width: 24, height: 24),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "savedRecipe/");
+            },
           ),
           IconButton(
             icon: SvgPicture.asset('icons/notification.svg',
