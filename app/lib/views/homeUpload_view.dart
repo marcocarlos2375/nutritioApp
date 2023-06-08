@@ -12,7 +12,7 @@ class HomeUploadView extends StatelessWidget {
         title: Text(
           "Search with an Image",
           style: TextStyle(
-              color: Colors.black, fontFamily: "Poppins", fontSize: 18),
+              color: Colors.black, fontFamily: "Circular", fontSize: 18),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -34,7 +34,7 @@ class HomeUploadView extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
-                    fontFamily: "Poppins",
+                    fontFamily: "Circular",
                   ),
                 ),
                 style: TextButton.styleFrom(
@@ -69,7 +69,7 @@ class HomeUploadView extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.green[200],
                     fontSize: 16,
-                    fontFamily: "Poppins",
+                    fontFamily: "Circular",
                   ),
                 ),
               ),

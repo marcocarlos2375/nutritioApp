@@ -35,7 +35,7 @@ class _SavedRecipeViewState extends State<SavedRecipeView> {
                   "Saved Recipes",
                   style: TextStyle(
                       fontSize: 20,
-                      fontFamily: "Poppins",
+                      fontFamily: "Circular",
                       fontWeight: FontWeight.w600),
                 ),
                 SizedBox(

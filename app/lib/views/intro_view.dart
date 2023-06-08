@@ -44,7 +44,7 @@ class _IntroViewState extends State<IntroView> {
                     "Nutritio.",
                     style: TextStyle(
                       fontSize: 36,
-                      fontFamily: "Poppins",
+                      fontFamily: "Circular",
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -54,7 +54,7 @@ class _IntroViewState extends State<IntroView> {
                     "300K+ Premium Recipe",
                     style: TextStyle(
                       fontSize: 18,
-                      fontFamily: "Poppins",
+                      fontFamily: "Circular",
                       color: Colors.white,
                       fontWeight: FontWeight.w600
                     ),
@@ -68,7 +68,7 @@ class _IntroViewState extends State<IntroView> {
                       style: TextStyle(
                         fontSize: 55,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins",
+                        fontFamily: "Circular",
                         color: Colors.white,
                       ),
                     ),
@@ -77,7 +77,7 @@ class _IntroViewState extends State<IntroView> {
                     "Simple way to find Tasty Recipe",
                     style: TextStyle(
                       fontSize: 18,
-                      fontFamily: "Poppins",
+                      fontFamily: "Circular",
                       color: Colors.white,
                     ),
                   ),
@@ -91,7 +91,7 @@ class _IntroViewState extends State<IntroView> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
-                        fontFamily: "Poppins",
+                        fontFamily: "Circular",
 
                       ),
                     ),

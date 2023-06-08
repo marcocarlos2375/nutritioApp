@@ -34,7 +34,7 @@ class WeekMenuCard extends StatelessWidget {
                     "$day",
                     style: TextStyle(
                       color: Colors.black,
-                      fontFamily: "Poppins",
+                      fontFamily: "Circular",
                       fontSize: 20,
                     ),
                     textAlign: TextAlign.left,
@@ -82,7 +82,7 @@ class WeekMenuCard extends StatelessWidget {
                       '$recipe',
                       style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Circular',
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                       ),
@@ -91,7 +91,7 @@ class WeekMenuCard extends StatelessWidget {
                       'can be cooked in $preparation_time min',
                       style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Circular',
                         fontSize: 12,
                       ),
                     ),

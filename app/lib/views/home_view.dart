@@ -33,14 +33,14 @@ class _HomeViewState extends State<HomeView> {
                     "Hello Carlos,",
                     style: TextStyle(
                         fontSize: 25,
-                        fontFamily: "Poppins",
+                        fontFamily: "Circular",
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
                     "What are you cooking today?",
                     style: TextStyle(
                         fontSize: 11,
-                        fontFamily: "Poppins",
+                        fontFamily: "Circular",
                         color: Colors.grey),
                   ),
                   SizedBox(height: 10,),
@@ -54,8 +54,19 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50,),
-                  SavedRecipeCard("Monday","creamy mushroom pasta",50,"https://images.immediate.co.uk/production/volatile/sites/30/2020/08/creamy_mushroom_pasta-fc7ab67.jpg?quality=90&webp=true&resize=300,272"),
+                  SizedBox(height: 30,),
+                  Text(
+                    "Recommandation",
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontFamily: "Circular",
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  SavedRecipeCard("Monday","creamy mushroom pasta",50,"https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-197477_10-8d45e07.jpg?quality=100&webp=true&resize=350,272"),
 
                 ],
               ),
@@ -86,7 +97,7 @@ class _HomeViewState extends State<HomeView> {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 13,
-                                fontFamily: "Poppins",
+                                fontFamily: "Circular",
                               ),
                             ),
                             style: TextButton.styleFrom(
@@ -123,7 +134,7 @@ class _HomeViewState extends State<HomeView> {
                               style: TextStyle(
                                 color: AppColors.primaryColor,
                                 fontSize: 13,
-                                fontFamily: "Poppins",
+                                fontFamily: "Circular",
                               ),
                             ),
                           ),

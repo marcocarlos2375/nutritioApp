@@ -55,7 +55,7 @@ class SavedRecipeCard extends StatelessWidget{
                       '$recipe',
                       style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Circular',
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                       ),
@@ -64,7 +64,7 @@ class SavedRecipeCard extends StatelessWidget{
                       'can be cooked in $preparation_time min',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Circular',
                         fontSize: 9,
                       ),
                     ),

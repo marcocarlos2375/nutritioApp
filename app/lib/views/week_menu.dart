@@ -17,7 +17,7 @@ class _WeekMenuState extends State<WeekMenu> {
         ),
         title: Text(
           "Week Menu suggestion",
-          style: TextStyle(color: Colors.black, fontFamily: "Poppins",fontSize: 18),
+          style: TextStyle(color: Colors.black, fontFamily: "Circular",fontSize: 18),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -31,7 +31,7 @@ class _WeekMenuState extends State<WeekMenu> {
                 padding: const EdgeInsets.fromLTRB(20, 50, 20, 10),
                 child: Text("Week menu",
                   style: TextStyle(
-                    color: Colors.black, fontFamily: "Poppins", fontSize: 22,fontWeight:FontWeight.w600,),textAlign: TextAlign.left,),
+                    color: Colors.black, fontFamily: "Circular", fontSize: 22,fontWeight:FontWeight.w600,),textAlign: TextAlign.left,),
               ),
               //IconButton(onPressed: (){}, icon: Icons.accessibility_new_outlined),
             ],

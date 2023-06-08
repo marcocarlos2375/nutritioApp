@@ -76,14 +76,17 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Poppins
+
+    - family: Circular
       fonts:
-        - asset: fonts/Poppins-Medium.ttf
-        - asset: fonts/Poppins-Italic.ttf
+        - asset: fonts/CircularStd-Medium.otf
+        - asset: fonts/CircularStd-MediumItalic.otf
           style: italic
-        - asset: fonts/Poppins-SemiBold.ttf
+        - asset: fonts/CircularStd-Light.otf
+          weight: 300
+        - asset: fonts/CircularStd-Bold.otf
           weight: 600
-        - asset: fonts/Poppins-Bold.ttf
+        - asset: fonts/CircularStd-Book.otf
           weight: 700
 
 
