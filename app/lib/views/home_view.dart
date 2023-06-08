@@ -22,12 +22,13 @@ class _HomeViewState extends State<HomeView> {
           elevation: 0,
         ),
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(40, 5, 20, 5),
+          padding: const EdgeInsets.fromLTRB(35, 5, 20, 5),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               return DefaultTabController(
                 length: 4, // Number of tabs
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 20,
@@ -59,13 +60,23 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 10,
+                    ),
+                    Text(
+                      "Recommandation",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: "Circular",
+                          color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 20,
                     ),
                     TabBar(
                       labelColor: Colors.white,
                       unselectedLabelColor: Colors.grey,
                       indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(25),
                         // BorderRadius for the tab indicator
                         color: AppColors.primaryColor,
                         // Color for the active tab
@@ -106,30 +117,50 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 25,),
+                    SizedBox(
+                      height: 25,
+                    ),
                     Container(
-                      height: 200,
+                      height: 210,
                       // This height is the remaining height minus the estimated heights of the above widgets.
                       child: TabBarView(
                         children: <Widget>[
                           Container(
-                            height: 200, // Define the height as you want
-                            child:ImageCardAuthor("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272","Vegan chickpea curry jacket potatoes", "Anna Berry"),
+                            margin: EdgeInsets.symmetric(vertical: 5.0),
+                            height: 220.0,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: <Widget>[
+                                ImageCardAuthor(
+                                    "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272",
+                                    "Vegan chickpea  ",
+                                    "Anna Berry"),
+                                ImageCardAuthor(
+                                    "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/bubble-857a9ea.jpg?quality=90&webp=true&resize=300,272",
+                                    "Poached eggs",
+                                    "Jennifer Irvine"),
+                                ImageCardAuthor(
+                                    "https://images.immediate.co.uk/production/volatile/sites/30/2022/09/Pochierte-Eierpoached-eggsFruehstueckBrunchZubereitungMethodevegetarisch.-97fc78d.jpg?quality=90&webp=true&resize=300,272",
+                                    "Poached eggs",
+                                    "Anna Berry"),
+                                // You can add more containers here
+                              ],
+                            ),
                           ),
                           Container(
-                            height: 200, // Define the height as you want
+                            height: 350, // Define the height as you want
                             child: Center(
                                 child: Text('Settings Page',
                                     style: TextStyle(fontFamily: "Circular"))),
                           ),
                           Container(
-                            height: 200, // Define the height as you want
+                            height: 350, // Define the height as you want
                             child: Center(
                                 child: Text('Profile Page',
                                     style: TextStyle(fontFamily: "Circular"))),
                           ),
                           Container(
-                            height: 200, // Define the height as you want
+                            height: 350, // Define the height as you want
                             child: Center(
                                 child: Text('Profile Page',
                                     style: TextStyle(fontFamily: "Circular"))),
@@ -148,10 +179,10 @@ class _HomeViewState extends State<HomeView> {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 20.0),
+                      margin: EdgeInsets.symmetric(vertical: 10.0),
                       height: 200.0,
                       child: ListView(
                         scrollDirection: Axis.horizontal,

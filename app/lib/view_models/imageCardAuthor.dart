@@ -13,29 +13,46 @@ class ImageCardAuthor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 200,
-      child: Column(
-        children: [
-          Image(image: NetworkImage("$image"),height: 120,),
-          SizedBox(height: 10,),
-          Text(
-            "$name",
-            style: TextStyle(
-                fontSize: 15,
-                fontFamily: "Circular",
-                color: Colors.black),
-          ),
-          SizedBox(height: 5,),
-          Text(
-            "$author",
-            style: TextStyle(
-                fontSize: 11,
-                fontFamily: "Circular",
-                color: Colors.grey),
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Container(
+        width: 150,
+        height: 225,
+        child: Column(
+          textDirection: TextDirection.ltr,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image(
+                    image: NetworkImage(
+                        '$image'),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "$name",
+                  style: TextStyle(
+                      fontSize: 15, fontFamily: "Circular", color: Colors.black),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "By $author",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 11, fontFamily: "Circular", color: Colors.grey),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
