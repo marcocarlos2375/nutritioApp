@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-class IntroView extends StatefulWidget {
-  @override
-  State<IntroView> createState() => _IntroViewState();
-}
-
-class _IntroViewState extends State<IntroView> {
+class IntroView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double _deviceHeight = MediaQuery.of(context).size.height;

@@ -13,7 +13,7 @@ class FooterViewModel extends StatelessWidget {
       //bottom navigation bar on scaffold
       color: Colors.white,
       elevation: 1,
-      shape: CircularNotchedRectangle(),
+      //shape: AppColors.starColor,
       //shape of notch
       notchMargin: 6,
       height: 85,

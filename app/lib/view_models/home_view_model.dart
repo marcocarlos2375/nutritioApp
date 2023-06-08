@@ -55,7 +55,7 @@ class HomeRecipeCard extends StatelessWidget{
                       '$recipe',
                       style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Circular',
+                        fontFamily: AppColors.fontFamily,
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                       ),
@@ -64,7 +64,7 @@ class HomeRecipeCard extends StatelessWidget{
                       'can be cooked in $preparation_time min',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontFamily: 'Circular',
+                        fontFamily: AppColors.fontFamily,
                         fontSize: 9,
                       ),
                     ),

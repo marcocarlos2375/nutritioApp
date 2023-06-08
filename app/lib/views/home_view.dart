@@ -37,7 +37,7 @@ class _HomeViewState extends State<HomeView> {
                       "Hello Carlos,",
                       style: TextStyle(
                           fontSize: 25,
-                          fontFamily: "Circular",
+                          fontFamily: AppColors.fontFamily,
                           fontWeight: FontWeight.w700),
                     ),
                     Text(
@@ -51,7 +51,6 @@ class _HomeViewState extends State<HomeView> {
                       height: 10,
                     ),
                     TextField(
-
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
@@ -61,8 +60,6 @@ class _HomeViewState extends State<HomeView> {
                         hintStyle: TextStyle(fontSize: 12,color: Colors.grey,fontFamily: "Circular")
                       ),
                     ),
-
-
                     SizedBox(
                       height: 12,
                     ),

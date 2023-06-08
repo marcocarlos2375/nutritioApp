@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/colors.dart';
+
 class ImageCardAuthor extends StatelessWidget {
   String? image;
   String? name;
@@ -38,7 +40,7 @@ class ImageCardAuthor extends StatelessWidget {
                 Text(
                   "$name",
                   style: TextStyle(
-                      fontSize: 15, fontFamily: "Circular", color: Colors.black),
+                      fontSize: 15, fontFamily: AppColors.fontFamily, color: Colors.black),
                 ),
                 SizedBox(
                   height: 5,
@@ -47,7 +49,7 @@ class ImageCardAuthor extends StatelessWidget {
                   "By $author",
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 11, fontFamily: "Circular", color: Colors.grey),
+                      fontSize: 11, fontFamily: AppColors.fontFamily, color: Colors.grey),
                 ),
               ],
             )
