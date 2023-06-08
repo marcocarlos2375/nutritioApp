@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../view_models/savedRecipeCard.dart';
+
 class HomeView extends StatefulWidget {
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -41,6 +43,20 @@ class _HomeViewState extends State<HomeView> {
                         fontFamily: "Poppins",
                         color: Colors.grey),
                   ),
+                  SizedBox(height: 10,),
+                  TextField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 50,),
+                  SavedRecipeCard("Monday","creamy mushroom pasta",50,"https://images.immediate.co.uk/production/volatile/sites/30/2020/08/creamy_mushroom_pasta-fc7ab67.jpg?quality=90&webp=true&resize=300,272"),
+
                 ],
               ),
 
