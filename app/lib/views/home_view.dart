@@ -24,11 +24,13 @@ class _HomeViewState extends State<HomeView> {
           children: [
             Column(
               children: [
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Text(
                   "Hello Carlos,",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w700),
                 ),
@@ -43,18 +45,37 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return Dialog(
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                          onPressed: null,
+
+                          child: Text(
+                            "select pictures",
+                            style: TextStyle(fontFamily: "Poppins"),
+                          )),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
-        onPressed: () {
-          //code to execute on button press
-        },
         child: SvgPicture.asset(
           'icons/plus.svg',
-          // Adjust the path to match the actual location of your SVG file
           width: 24,
           height: 24,
-          color: Colors.white,
-        ), //icon inside button
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: FooterViewModel(),

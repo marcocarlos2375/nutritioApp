@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../utils/colors.dart';
-class FooterViewModel extends StatelessWidget{
+
+class FooterViewModel extends StatelessWidget {
+  get floatingActionButton => null;
+
   @override
   Widget build(BuildContext context) {
-    return(BottomAppBar(
+    return ( BottomAppBar(
       //bottom navigation bar on scaffold
       color: Colors.white,
       elevation: 1,
@@ -30,12 +33,13 @@ class FooterViewModel extends StatelessWidget{
                 colorBlendMode: BlendMode.srcIn,
                 // Remove the color property
               ),
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, "/home");
               } //do something,
           ),
           IconButton(
-            icon: SvgPicture.asset('icons/Union.svg', width: 24, height: 24),
+            icon:
+            SvgPicture.asset('icons/Union.svg', width: 24, height: 24),
             onPressed: () {
               Navigator.pushNamed(context, "savedRecipe/");
             },
@@ -46,8 +50,8 @@ class FooterViewModel extends StatelessWidget{
             onPressed: () {},
           ),
           IconButton(
-            icon:
-            SvgPicture.asset('icons/profile.svg', width: 24, height: 24),
+            icon: SvgPicture.asset('icons/profile.svg',
+                width: 24, height: 24),
             onPressed: () {},
           ),
         ],
