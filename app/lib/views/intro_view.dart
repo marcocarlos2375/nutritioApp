@@ -56,6 +56,7 @@ class _IntroViewState extends State<IntroView> {
                       fontSize: 18,
                       fontFamily: "Poppins",
                       color: Colors.white,
+                      fontWeight: FontWeight.w600
                     ),
                   ),
                   SizedBox(height: 150),
