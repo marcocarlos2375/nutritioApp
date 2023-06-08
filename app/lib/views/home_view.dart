@@ -1,4 +1,5 @@
 import 'package:app/view_models/footer_view_model.dart';
+import 'package:app/view_models/imageCardAuthor.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
@@ -105,33 +106,30 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 25,),
                     Container(
-                      height: 140,
+                      height: 200,
                       // This height is the remaining height minus the estimated heights of the above widgets.
                       child: TabBarView(
                         children: <Widget>[
                           Container(
-                            height: 50, // Define the height as you want
-                            child: Center(
-                                child: Text(
-                              'Home Page',
-                              style: TextStyle(fontFamily: "Circular"),
-                            )),
+                            height: 200, // Define the height as you want
+                            child:ImageCardAuthor("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272","Vegan chickpea curry jacket potatoes", "Anna Berry"),
                           ),
                           Container(
-                            height: 50, // Define the height as you want
+                            height: 200, // Define the height as you want
                             child: Center(
                                 child: Text('Settings Page',
                                     style: TextStyle(fontFamily: "Circular"))),
                           ),
                           Container(
-                            height: 50, // Define the height as you want
+                            height: 200, // Define the height as you want
                             child: Center(
                                 child: Text('Profile Page',
                                     style: TextStyle(fontFamily: "Circular"))),
                           ),
                           Container(
-                            height: 50, // Define the height as you want
+                            height: 200, // Define the height as you want
                             child: Center(
                                 child: Text('Profile Page',
                                     style: TextStyle(fontFamily: "Circular"))),
