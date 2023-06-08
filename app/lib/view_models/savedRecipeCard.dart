@@ -24,7 +24,7 @@ class SavedRecipeCard extends StatelessWidget{
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 0.8,
-              height: 150,
+              height: MediaQuery.of(context).size.width * 0.38,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(

@@ -11,8 +11,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("home"),
           centerTitle: true,
@@ -43,7 +42,8 @@ class _HomeViewState extends State<HomeView> {
                         color: Colors.grey),
                   ),
                 ],
-              )
+              ),
+
             ],
           ),
         ),
@@ -54,20 +54,64 @@ class _HomeViewState extends State<HomeView> {
               builder: (BuildContext context) {
                 return Dialog(
                   child: Container(
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .height * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextButton(
-                            onPressed: null,
-
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.20,
+                        ),
+                        Center(
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, "week_menu/");
+                            },
                             child: Text(
-                              "select pictures",
-                              style: TextStyle(fontFamily: "Poppins"),
-                            )),
+                              "Take pictures",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontFamily: "Poppins",
+                              ),
+                            ),
+                            style: TextButton.styleFrom(
+                              backgroundColor: AppColors.primaryColor,
+                              padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Center(
+                          child: OutlinedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, "week_menu/");
+                            },
+                            style: ButtonStyle(
+                              side:
+                                  MaterialStateProperty.resolveWith<BorderSide>(
+                                (states) => BorderSide(
+                                  color: Colors.green,
+                                  width: 1.0,
+                                ),
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              padding:
+                                  MaterialStateProperty.all<EdgeInsetsGeometry>(
+                                EdgeInsets.fromLTRB(60, 20, 60, 20),
+                              ),
+                            ),
+                            child: Text(
+                              "Select Pictures",
+                              style: TextStyle(
+                                color: AppColors.primaryColor,
+                                fontSize: 13,
+                                fontFamily: "Poppins",
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -84,7 +128,6 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: FooterViewModel()
-      );
+        bottomNavigationBar: FooterViewModel());
   }
 }
