@@ -51,16 +51,20 @@ class _HomeViewState extends State<HomeView> {
                       height: 10,
                     ),
                     TextField(
+
                       decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.grey[100],
                         border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(color: Colors.black, width: 2.0),
+                        ),
+                        hintText: 'Search a Recipe...',
+                        hintStyle: TextStyle(fontSize: 12,color: Colors.grey,fontFamily: "Circular")
                       ),
                     ),
+
+
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
                     Text(
                       "Recommandation",
