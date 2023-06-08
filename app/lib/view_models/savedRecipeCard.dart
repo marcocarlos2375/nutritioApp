@@ -23,8 +23,8 @@ class SavedRecipeCard extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.width * 0.38,
+              width: MediaQuery.of(context).size.width * 0.70,
+              height: MediaQuery.of(context).size.width * 0.40,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
@@ -65,7 +65,7 @@ class SavedRecipeCard extends StatelessWidget{
                       style: TextStyle(
                         color: Colors.grey,
                         fontFamily: 'Circular',
-                        fontSize: 9,
+                        fontSize: 12,
                       ),
                     ),
                   ],

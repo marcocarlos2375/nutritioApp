@@ -22,56 +22,175 @@ class _HomeViewState extends State<HomeView> {
         ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(40, 5, 20, 5),
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Hello Carlos,",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: "Circular",
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    "What are you cooking today?",
-                    style: TextStyle(
-                        fontSize: 11,
-                        fontFamily: "Circular",
-                        color: Colors.grey),
-                  ),
-                  SizedBox(height: 10,),
-                  TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.grey[100],
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(10)
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              return DefaultTabController(
+                length: 4, // Number of tabs
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Hello Carlos,",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: "Circular",
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      "What are you cooking today?",
+                      style: TextStyle(
+                          fontSize: 11,
+                          fontFamily: "Circular",
+                          color: Colors.grey),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[100],
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(10)),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 30,),
-                  Text(
-                    "Recommandation",
-                    style: TextStyle(
-                        fontSize: 15,
+                    SizedBox(
+                      height: 30,
+                    ),
+                    TabBar(
+                      labelColor: Colors.white,
+                      unselectedLabelColor: Colors.grey,
+                      indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        // BorderRadius for the tab indicator
+                        color: AppColors.primaryColor,
+                        // Color for the active tab
+                      ),
+                      labelStyle: TextStyle(
+                        fontFamily: "Circular",
+                      ),
+                      tabs: <Widget>[
+                        Container(
+                          height: 30,
+                          child: Tab(
+                            child: Text(
+                              "All",
+                              style: TextStyle(
+                                height:
+                                    1.75, // This is for line-height, it's a multiplier, not pixel value
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 35,
+                          child: Tab(
+                            text: "BreakFst",
+                          ),
+                        ),
+                        Container(
+                          height: 35,
+                          child: Tab(
+                            text: "Dinner",
+                          ),
+                        ),
+                        Container(
+                          height: 35,
+                          child: Tab(
+                            text: "Diet",
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: 140,
+                      // This height is the remaining height minus the estimated heights of the above widgets.
+                      child: TabBarView(
+                        children: <Widget>[
+                          Container(
+                            height: 50, // Define the height as you want
+                            child: Center(
+                                child: Text(
+                              'Home Page',
+                              style: TextStyle(fontFamily: "Circular"),
+                            )),
+                          ),
+                          Container(
+                            height: 50, // Define the height as you want
+                            child: Center(
+                                child: Text('Settings Page',
+                                    style: TextStyle(fontFamily: "Circular"))),
+                          ),
+                          Container(
+                            height: 50, // Define the height as you want
+                            child: Center(
+                                child: Text('Profile Page',
+                                    style: TextStyle(fontFamily: "Circular"))),
+                          ),
+                          Container(
+                            height: 50, // Define the height as you want
+                            child: Center(
+                                child: Text('Profile Page',
+                                    style: TextStyle(fontFamily: "Circular"))),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      "Our Selection this Week",
+                      style: TextStyle(
+                        fontSize: 18,
                         fontFamily: "Circular",
                         fontWeight: FontWeight.w600,
                         color: Colors.black,
-
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                  ),
-                  SizedBox(height: 10,),
-                  SavedRecipeCard("Monday","creamy mushroom pasta",50,"https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-197477_10-8d45e07.jpg?quality=100&webp=true&resize=350,272"),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 20.0),
+                      height: 200.0,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: SavedRecipeCard(
+                                "Monday",
+                                "Creamy mushroom pasta",
+                                50,
+                                "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-197477_10-8d45e07.jpg?quality=100&webp=true&resize=1350,772"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: SavedRecipeCard(
+                                "Monday",
+                                "Creamy mushroom pasta",
+                                30,
+                                "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chicken_pasta_bake-06fe2d6.jpg?quality=90&webp=true&resize=1350,772"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: SavedRecipeCard(
+                                "Monday",
+                                "Creamy mushroom pasta",
+                                30,
+                                "https://images.immediate.co.uk/production/volatile/sites/30/2021/02/Chicken-and-bacon-pasta-acac96f.jpg?quality=90&webp=true&resize=1350,772"),
+                          ),
 
-                ],
-              ),
-
-            ],
+                          // You can add more containers here
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
         floatingActionButton: FloatingActionButton(

@@ -84,7 +84,7 @@ class WeekMenuCard extends StatelessWidget {
                         color: Colors.white,
                         fontFamily: 'Circular',
                         fontSize: 17,
-                        fontWeight: FontWeight.w600,
+                        //fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
@@ -92,7 +92,7 @@ class WeekMenuCard extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Circular',
-                        fontSize: 12,
+                        fontSize: 14,
                       ),
                     ),
                   ],
