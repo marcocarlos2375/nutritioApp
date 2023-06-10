@@ -69,9 +69,10 @@ class _FilterButton extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10))
                   ),
                   child: IconButton(
-                    icon: const Icon(
-                      Icons.tune,
-                      size: 24.0,
+                    icon: SvgPicture.asset(
+                      "assets/icons/filter.svg",
+                      width: 24.0,
+                      height: 24.0,
                       color: Colors.white,
                     ),
                     onPressed: () {
