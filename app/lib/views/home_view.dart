@@ -192,7 +192,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 10.0),
-                        height: 200.0,
+                        height: 230.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[

@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/test",
-    routes: {"/test": (e) => Details(),
+    initialRoute: "/",
+    routes: {"/": (e) => HomeView(),
       "week_menu/": (e) => WeekMenu(),
       "home_upload/":(e)=>HomeUploadView(),
       "savedRecipe/":(e)=>SavedRecipeView(),
