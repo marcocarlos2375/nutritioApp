@@ -19,11 +19,14 @@ class _NotificationState extends State<NotificationProject> {
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Container(
-              child: Text("Notifications" , style: TextStyle(fontFamily: AppFontFamily.fontFamily,fontSize: 17,color: Colors.grey[900]),),
+              child: Text("Notifications" , style: TextStyle(fontFamily: AppFontFamily.fontFamily,fontSize: 26,color: Colors.black),),
           ),
         ),
         floatingActionButton: FloatingActionButton(

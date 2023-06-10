@@ -34,7 +34,7 @@ class FooterViewModel extends StatelessWidget {
                 // Remove the color property
               ),
               onPressed: () {
-                Navigator.pushNamed(context, "/home");
+                Navigator.pushNamed(context, "home/");
               } //do something,
           ),
           IconButton(
