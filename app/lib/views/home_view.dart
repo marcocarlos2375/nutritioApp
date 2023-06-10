@@ -295,7 +295,7 @@ class _HomeViewState extends State<HomeView> {
           backgroundColor: AppColors.primaryColor,
           elevation: 0,
           child: SvgPicture.asset(
-            'icons/plus.svg',
+            'assets/icons/plus.svg',
             width: 24,
             height: 24,
           ),

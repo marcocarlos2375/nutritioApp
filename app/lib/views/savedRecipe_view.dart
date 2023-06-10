@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../utils/colors.dart';
 import '../view_models/footer_view_model.dart';
 import '../view_models/savedRecipeCard.dart';
+import '../view_models/select_upload_image.dart';
 import '../view_models/weekMenuCard.dart';
 
 class SavedRecipeView extends StatefulWidget {
@@ -57,10 +58,15 @@ class _SavedRecipeViewState extends State<SavedRecipeView> {
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
         onPressed: () {
-          //code to execute on button press
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return const SelectUploadImage();
+            },
+          );
         },
         child: SvgPicture.asset(
-          'icons/plus.svg',
+          'assets/icons/plus.svg',
           // Adjust the path to match the actual location of your SVG file
           width: 24,
           height: 24,
