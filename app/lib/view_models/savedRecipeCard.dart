@@ -23,7 +23,7 @@ class SavedRecipeCard extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.70,
+              width: MediaQuery.of(context).size.width * 0.62,
               height: MediaQuery.of(context).size.width * 0.40,
               decoration: BoxDecoration(
                 image: DecorationImage(
