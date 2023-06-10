@@ -1,22 +1,16 @@
-import 'dart:io';
-
 import 'package:app/utils/fontFamily.dart';
 import 'package:app/view_models/footer_view_model.dart';
-import 'package:app/view_models/imageCardAuthor.dart';
 import 'package:app/view_models/resultRecipeCard.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../view_models/select_upload_image.dart';
 
 
 
 class SearchResultView extends StatefulWidget {
-  final File? image;
-
-  const SearchResultView(this.image);
+  const SearchResultView({super.key});
 
   @override
   State<SearchResultView> createState() => _SearchResultView();
@@ -36,7 +30,7 @@ class _SearchResultView extends State<SearchResultView> {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: _FilterButton(widget.image),
+        body: _FilterButton(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showDialog(
@@ -60,8 +54,6 @@ class _SearchResultView extends State<SearchResultView> {
 }
 
 class _FilterButton extends StatelessWidget {
-  File? image;
-  _FilterButton(this.image);
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +101,6 @@ class _FilterButton extends StatelessWidget {
                     ),
                 ),
               ),
-              image != null ? Image.file(image!) : const Text("Not found!"),
               SizedBox(
                 height: MediaQuery.of(context).size.height - 85,
                 child: Padding(

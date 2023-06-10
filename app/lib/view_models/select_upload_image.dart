@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:app/views/searchResult_view.dart';
+import 'package:app/views/tensorflow_result_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,7 +25,7 @@ class _SelectUploadImage extends State<SelectUploadImage> {
         _image = img;
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => SearchResultView(_image),
+            builder: (context) => TensorflowResult(),
           ),
         );
       });
