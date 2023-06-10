@@ -1,5 +1,6 @@
 import 'package:app/view_models/footer_view_model.dart';
 import 'package:app/view_models/imageCardAuthor.dart';
+import 'package:app/views/details.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
@@ -52,18 +53,27 @@ class _HomeViewState extends State<HomeView> {
                         height: 10,
                       ),
                       TextField(
-                        onChanged: null,
+                        onChanged: (text) {
+                          // Mettez votre logique de recherche ici
+                        },
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            hintText: 'Search a Recipe...',
-                            hintStyle: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                                fontFamily: "Circular")),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(color: Colors.red, width: 2.0),
+                          ),
+                          hintText: 'Search a Recipe...',
+                          hintStyle: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                            fontFamily: "Circular",
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.search),
+                            onPressed: () {
+                              // Mettez votre logique de recherche ici
+                            },
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 12,
@@ -196,13 +206,18 @@ class _HomeViewState extends State<HomeView> {
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.all(3.0),
-                              child: SavedRecipeCard(
-                                  "Monday",
-                                  "Creamy mushroom pasta",
-                                  30,
-                                  "https://www.themealdb.com/images/media/meals/1529444113.jpg"),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, "details/");
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: SavedRecipeCard(
+                                    "Monday",
+                                    "Creamy mushroom pasta",
+                                    30,
+                                    "https://www.themealdb.com/images/media/meals/1529444113.jpg"),
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(3.0),
