@@ -4,6 +4,7 @@ import 'package:app/views/details.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:app/view_models/select_upload_image.dart';
 
 import '../view_models/savedRecipeCard.dart';
 
@@ -17,6 +18,9 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.black, //change your color here
+          ),
           title: Text("home"),
           centerTitle: true,
           backgroundColor: Colors.white,
@@ -284,70 +288,7 @@ class _HomeViewState extends State<HomeView> {
             showDialog(
               context: context,
               builder: (BuildContext context) {
-                return Dialog(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.20,
-                        ),
-                        Center(
-                          child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, "week_menu/");
-                            },
-                            child: Text(
-                              "Take pictures",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontFamily: "Circular",
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                              backgroundColor: AppColors.primaryColor,
-                              padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Center(
-                          child: OutlinedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, "week_menu/");
-                            },
-                            style: ButtonStyle(
-                              side:
-                                  MaterialStateProperty.resolveWith<BorderSide>(
-                                (states) => BorderSide(
-                                  color: Colors.green,
-                                  width: 1.0,
-                                ),
-                              ),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              padding:
-                                  MaterialStateProperty.all<EdgeInsetsGeometry>(
-                                EdgeInsets.fromLTRB(60, 20, 60, 20),
-                              ),
-                            ),
-                            child: Text(
-                              "Select Pictures",
-                              style: TextStyle(
-                                color: AppColors.primaryColor,
-                                fontSize: 13,
-                                fontFamily: "Circular",
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                return const SelectUploadImage();
               },
             );
           },

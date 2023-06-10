@@ -4,6 +4,8 @@ import 'package:app/views/home_view.dart';
 import 'package:app/views/intro_view.dart';
 import 'package:app/views/notification.dart';
 import 'package:app/views/savedRecipe_view.dart';
+import 'package:app/views/searchResult_view.dart';
+import 'package:app/views/tensorflow_result_view.dart';
 import 'package:app/views/test.dart';
 import 'package:app/views/week_menu.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,8 @@ void main() {
       "savedRecipe/":(e)=>SavedRecipeView(),
       "details/":(e)=>Details(),
       "home/":(e)=>HomeView(),
+      "searchResult/":(e)=>SearchResultView(),
+      "tensorflowResult/":(e)=>TensorflowResult(),
       "notification/":(e)=>NotificationProject()
     },
   ));

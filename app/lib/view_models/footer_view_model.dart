@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import '../utils/colors.dart';
 
 class FooterViewModel extends StatelessWidget {
+  const FooterViewModel({super.key});
+
   get floatingActionButton => null;
 
   @override
@@ -26,7 +28,7 @@ class FooterViewModel extends StatelessWidget {
         children: <Widget>[
           IconButton(
               icon: SvgPicture.asset(
-                'icons/home-2.svg',
+                'assets/icons/home-2.svg',
                 width: 24,
                 height: 24,
                 color: AppColors.primaryColor,
@@ -39,20 +41,20 @@ class FooterViewModel extends StatelessWidget {
           ),
           IconButton(
             icon:
-            SvgPicture.asset('icons/Union.svg', width: 24, height: 24),
+            SvgPicture.asset('assets/icons/Union.svg', width: 24, height: 24),
             onPressed: () {
               Navigator.pushNamed(context, "savedRecipe/");
             },
           ),
           IconButton(
-            icon: SvgPicture.asset('icons/notification.svg',
+            icon: SvgPicture.asset('assets/icons/notification.svg',
                 width: 24, height: 24),
             onPressed: () {
               Navigator.pushNamed(context, "notification/");
             },
           ),
           IconButton(
-            icon: SvgPicture.asset('icons/profile.svg',
+            icon: SvgPicture.asset('assets/icons/profile.svg',
                 width: 24, height: 24),
             onPressed: () {},
           ),

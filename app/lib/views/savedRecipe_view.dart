@@ -16,6 +16,9 @@ class _SavedRecipeViewState extends State<SavedRecipeView> {
   Widget build(BuildContext context) {
     return (Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         title: Text("home"),
         centerTitle: true,
         backgroundColor: Colors.white,
