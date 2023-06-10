@@ -54,13 +54,16 @@ class _HomeViewState extends State<HomeView> {
                       TextField(
                         onChanged: null,
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide(color: Colors.red, width: 2.0),
-                          ),
-                          hintText: 'Search a Recipe...',
-                          hintStyle: TextStyle(fontSize: 12,color: Colors.grey,fontFamily: "Circular")
-                        ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                            ),
+                            hintText: 'Search a Recipe...',
+                            hintStyle: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                                fontFamily: "Circular")),
                       ),
                       SizedBox(
                         height: 12,
@@ -154,19 +157,22 @@ class _HomeViewState extends State<HomeView> {
                               height: 350, // Define the height as you want
                               child: Center(
                                   child: Text('Settings Page',
-                                      style: TextStyle(fontFamily: "Circular"))),
+                                      style:
+                                          TextStyle(fontFamily: "Circular"))),
                             ),
                             Container(
                               height: 350, // Define the height as you want
                               child: Center(
                                   child: Text('Profile Page',
-                                      style: TextStyle(fontFamily: "Circular"))),
+                                      style:
+                                          TextStyle(fontFamily: "Circular"))),
                             ),
                             Container(
                               height: 350, // Define the height as you want
                               child: Center(
                                   child: Text('Profile Page',
-                                      style: TextStyle(fontFamily: "Circular"))),
+                                      style:
+                                          TextStyle(fontFamily: "Circular"))),
                             ),
                           ],
                         ),
@@ -195,8 +201,8 @@ class _HomeViewState extends State<HomeView> {
                               child: SavedRecipeCard(
                                   "Monday",
                                   "Creamy mushroom pasta",
-                                  50,
-                                  "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-197477_10-8d45e07.jpg?quality=100&webp=true&resize=1350,772"),
+                                  30,
+                                  "https://www.themealdb.com/images/media/meals/1529444113.jpg"),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(3.0),
@@ -214,7 +220,6 @@ class _HomeViewState extends State<HomeView> {
                                   30,
                                   "https://images.immediate.co.uk/production/volatile/sites/30/2021/02/Chicken-and-bacon-pasta-acac96f.jpg?quality=90&webp=true&resize=1350,772"),
                             ),
-
                             // You can add more containers here
                           ],
                         ),
@@ -240,11 +245,11 @@ class _HomeViewState extends State<HomeView> {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.all(3.0),
-                              child: SavedRecipeCard(
-                                  "Monday",
-                                  "Creamy mushroom pasta",
-                                  50,
-                                  "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-197477_10-8d45e07.jpg?quality=100&webp=true&resize=1350,772"),
+                              child: ImageCardAuthor(
+                                "https://images.unsplash.com/photo-1562945431-ce2b63d5a7fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=100",
+                                "Donut",
+                                "Creamy mushroom pasta",
+                              ),
                             ),
 
 
