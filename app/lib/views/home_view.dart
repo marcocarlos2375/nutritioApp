@@ -21,8 +21,16 @@ class _HomeViewState extends State<HomeView> {
           iconTheme: IconThemeData(
             color: Colors.black, //change your color here
           ),
-          title: Text("home"),
-          centerTitle: true,
+          title: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              "Nutritio",
+              style: TextStyle(
+                  fontFamily: AppColors.fontFamily,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black),
+            ),
+          ),
           backgroundColor: Colors.white,
           elevation: 0,
         ),
@@ -63,7 +71,8 @@ class _HomeViewState extends State<HomeView> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide(color: Colors.red, width: 2.0),
+                            borderSide:
+                                BorderSide(color: Colors.red, width: 2.0),
                           ),
                           hintText: 'Search a Recipe...',
                           hintStyle: TextStyle(
@@ -270,7 +279,6 @@ class _HomeViewState extends State<HomeView> {
                                 "Creamy mushroom pasta",
                               ),
                             ),
-
 
                             // You can add more containers here
                           ],

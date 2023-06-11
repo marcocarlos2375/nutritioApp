@@ -1,4 +1,5 @@
 import 'package:app/utils/colors.dart';
+import 'package:app/utils/fontFamily.dart';
 import 'package:flutter/material.dart';
 class ResultRecipeCard extends StatelessWidget{
   String? day;
@@ -6,8 +7,7 @@ class ResultRecipeCard extends StatelessWidget{
   int? preparation_time;
   String? imagePath;
 
-  ResultRecipeCard(
-      String day, String recipe, int preparation_time, String imagePath) {
+  ResultRecipeCard(String day, String recipe, int preparation_time, String imagePath) {
     this.day = day;
     this.recipe = recipe;
     this.preparation_time = preparation_time;
@@ -55,7 +55,7 @@ class ResultRecipeCard extends StatelessWidget{
                       '$recipe',
                       style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Circular',
+                        fontFamily: AppFontFamily.fontFamily,
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                       ),
@@ -64,7 +64,7 @@ class ResultRecipeCard extends StatelessWidget{
                       'can be cooked in $preparation_time min',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontFamily: 'Circular',
+                        fontFamily: AppFontFamily.fontFamily,
                         fontSize: 12,
                       ),
                     ),

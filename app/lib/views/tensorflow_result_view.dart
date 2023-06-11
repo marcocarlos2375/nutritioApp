@@ -1,4 +1,6 @@
 import 'package:app/utils/fontFamily.dart';
+import 'package:app/utils/ingredientsImages.dart';
+import 'package:app/view_models/ingredientDetectedBox.dart';
 import 'package:app/views/searchResult_view.dart';
 import 'package:app/views/week_menu.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,6 @@ class TensorflowResult extends StatefulWidget {
 }
 
 class _TensorflowResult extends State<TensorflowResult> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +54,6 @@ class _TensorflowResult extends State<TensorflowResult> {
 }
 
 class _FilterButton extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -61,10 +61,10 @@ class _FilterButton extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "Select the next step",
+              "Select the Next Step",
               style: TextStyle(
                   fontSize: 20,
-                  fontFamily: "Circular",
+                  fontFamily: AppColors.fontFamily,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(
@@ -78,151 +78,61 @@ class _FilterButton extends StatelessWidget {
                   width: 150,
                   decoration: const BoxDecoration(
                       color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => SearchResultView(),
-                        ),
-                      );
-                    },
-                    child: Text("Show recipe", style: TextStyle(color: Colors.white))
-                  ),
-                ),
-                SizedBox(width: 30),
-                Container(
-                  width: 150,
-                  decoration: const BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                           builder: (context) => WeekMenu(),
+                            builder: (context) => SearchResultView(),
                           ),
                         );
                       },
-                      child: Text("Show week menu", style: TextStyle(color: Colors.white))
-                  )
-                )
+                      child: Text("Show recipe",
+                          style: TextStyle(color: Colors.white))),
+                ),
+                SizedBox(width: 30),
+                Container(
+                    width: 150,
+                    decoration: const BoxDecoration(
+                        color: AppColors.primaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => WeekMenu(),
+                            ),
+                          );
+                        },
+                        child: Text("Show week menu",
+                            style: TextStyle(color: Colors.white))))
               ],
             ),
             SizedBox(
               height: 50,
             ),
             Text(
-              "Following incredients detected",
+              "Ingredients detected",
               style: TextStyle(
                   fontSize: 20,
-                  fontFamily: "Circular",
+                  fontFamily: AppColors.fontFamily,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(
               height: 20,
             ),
-            Column(
-              children: [
-                Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 217, 217, 217),
-                      borderRadius: BorderRadius.all(Radius.circular(12))
-                  ),
-                  padding: const EdgeInsets.all(12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: const Image(
-                            height: 52,
-                            width: 52,
-                            image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-                          )
-                      ),
-                      const SizedBox(width: 15),
-                      const Text(
-                        "Product Name",
-                        style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: AppFontFamily.fontFamily,
-                        fontWeight: FontWeight.w600),
-                      ),
-                    ]
-                  )
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                    decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 217, 217, 217),
-                        borderRadius: BorderRadius.all(Radius.circular(12))
-                    ),
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: const Image(
-                                height: 52,
-                                width: 52,
-                                image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-                              )
-                          ),
-                          const SizedBox(width: 15),
-                          const Text(
-                            "Product Name",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: AppFontFamily.fontFamily,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ]
-                    )
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                    decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 217, 217, 217),
-                        borderRadius: BorderRadius.all(Radius.circular(12))
-                    ),
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: const Image(
-                              height: 52,
-                              width: 52,
-                              image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-                            )
-                          ),
-                          const SizedBox(width: 15),
-                          const Text(
-                            "Product Name",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: AppFontFamily.fontFamily,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ]
-                    )
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                children: [
+                  IngredientDetectedBox(IngredientsImages.tomato, "Tomatoes"),
+                  IngredientDetectedBox(IngredientsImages.ananas, "Ananas")
+                 ],
+              ),
             ),
           ],
-        )
-    );
+        ));
   }
 }
+
+
