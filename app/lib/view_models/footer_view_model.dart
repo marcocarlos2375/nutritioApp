@@ -56,7 +56,9 @@ class FooterViewModel extends StatelessWidget {
           IconButton(
             icon: SvgPicture.asset('assets/icons/profile.svg',
                 width: 24, height: 24),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "profile/");
+            },
           ),
         ],
       ),

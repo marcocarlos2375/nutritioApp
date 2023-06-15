@@ -24,11 +24,9 @@ class _SearchResultByNameState extends State<SearchResultByName> {
   }
 
   fetchProducts() async {
-    // Charger le fichier JSON à partir des assets
     String jsonData = await DefaultAssetBundle.of(context).loadString(
         'assets/json/data.json');
     List<dynamic> data = json.decode(jsonData);
-
     setState(() {
       products = data.cast<Map<String, dynamic>>();
     });
@@ -39,20 +37,20 @@ class _SearchResultByNameState extends State<SearchResultByName> {
       appBar: AppBar(title: Text(widget.name),centerTitle: true,elevation: 0,),
       body:  SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 15.0),
               child: Text("Search Result for",style: TextStyle(fontFamily: AppFontFamily.fontFamily),),
             ),
             Column(
-              children: 
-                  
+              children:
               products.map((product) {
                 String author = product["Author"];
                 String image = product["Image Link"];
                 String name = product["Recipe Name"];
                 int id = product["url"];
-
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(

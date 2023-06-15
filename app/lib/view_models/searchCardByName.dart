@@ -24,8 +24,8 @@ class SearchCardByName extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.82,
-              height: MediaQuery.of(context).size.width * 0.40,
+              width: MediaQuery.of(context).size.width * 0.80,
+              height: MediaQuery.of(context).size.width * 0.35,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(

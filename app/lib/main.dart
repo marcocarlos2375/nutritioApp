@@ -3,6 +3,7 @@ import 'package:app/views/homeUpload_view.dart';
 import 'package:app/views/home_view.dart';
 import 'package:app/views/intro_view.dart';
 import 'package:app/views/notification.dart';
+import 'package:app/views/profile.dart';
 import 'package:app/views/savedRecipe_view.dart';
 import 'package:app/views/searchResult_view.dart';
 import 'package:app/views/tensorflow_result_view.dart';
@@ -20,7 +21,8 @@ void main() {
       "home/":(e)=>HomeView(),
       "searchResult/":(e)=>SearchResultView(),
       "tensorflowResult/":(e)=>TensorflowResult(),
-      "notification/":(e)=>NotificationProject()
+      "notification/":(e)=>NotificationProject(),
+      "profile/":(e)=>Profile()
     },
   ));
 }
