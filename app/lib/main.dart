@@ -17,7 +17,6 @@ void main() {
       "week_menu/": (e) => WeekMenu(),
       "home_upload/":(e)=>HomeUploadView(),
       "savedRecipe/":(e)=>SavedRecipeView(),
-      "details/":(e)=>Details(),
       "home/":(e)=>HomeView(),
       "searchResult/":(e)=>SearchResultView(),
       "tensorflowResult/":(e)=>TensorflowResult(),

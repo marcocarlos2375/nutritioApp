@@ -30,7 +30,10 @@ class _TensorflowResult extends State<TensorflowResult> {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: _FilterButton(),
+        body: Padding(
+          padding: const EdgeInsets.only(left: 25,right: 25),
+          child: _FilterButton(),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showDialog(
@@ -59,6 +62,8 @@ class _FilterButton extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Select the Next Step",
@@ -75,8 +80,7 @@ class _FilterButton extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 150,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       color: AppColors.primaryColor,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: TextButton(
@@ -88,7 +92,7 @@ class _FilterButton extends StatelessWidget {
                         );
                       },
                       child: Text("Show recipe",
-                          style: TextStyle(color: Colors.white))),
+                          style: TextStyle(color: Colors.white,fontFamily: AppFontFamily.fontFamily))),
                 ),
                 SizedBox(width: 30),
                 Container(
@@ -105,7 +109,7 @@ class _FilterButton extends StatelessWidget {
                           );
                         },
                         child: Text("Show week menu",
-                            style: TextStyle(color: Colors.white))))
+                            style: TextStyle(color: Colors.white,fontFamily: AppFontFamily.fontFamily))))
               ],
             ),
             SizedBox(
@@ -116,13 +120,13 @@ class _FilterButton extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontFamily: AppColors.fontFamily,
-                  fontWeight: FontWeight.w600),
+                  fontWeight: FontWeight.w600,),
             ),
             SizedBox(
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(0),
               child: Column(
                 children: [
                   IngredientDetectedBox(IngredientsImages.tomato, "Tomatoes"),

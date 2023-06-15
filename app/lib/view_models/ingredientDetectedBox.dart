@@ -17,8 +17,10 @@ class IngredientDetectedBox extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
           decoration:  BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.all(Radius.circular(8))),
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+
+          ),
           padding: const EdgeInsets.all(12.0),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.start,

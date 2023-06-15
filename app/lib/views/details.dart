@@ -4,8 +4,14 @@ import '../models/recipe.dart';
 import '../utils/fontFamily.dart';
 
 class Details extends StatefulWidget {
+  int id;
+  String image;
+  String name;
   @override
   State<Details> createState() => _DetailsState();
+  Details({required this.id,required this.image,required this.name});
+
+
 }
 
 class _DetailsState extends State<Details> {
@@ -50,15 +56,19 @@ class _DetailsState extends State<Details> {
     },
   );
 
+
+
   @override
   Widget build(BuildContext context) {
+    String name = widget.name;
+    String image = widget.image;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
         title: Text(
-          "Details",
+          name,
           style: TextStyle(
               color: Colors.black, fontFamily: AppFontFamily.fontFamily, fontSize: 18),
         ),
@@ -73,20 +83,20 @@ class _DetailsState extends State<Details> {
             left: 0,
             right: 0,
             child: Image.network(
-              recipe.image,
+              image,
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height * 0.4,
             ),
           ),
           Padding(
             padding: EdgeInsets.only(
-                top: 60),
+                top: 250),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
                 ),
               ),
               child: ListView(
@@ -107,7 +117,7 @@ class _DetailsState extends State<Details> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 50,),
-          Text('${recipe.name}',
+          Text('${widget.name}',
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
