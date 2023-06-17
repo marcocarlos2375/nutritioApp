@@ -14,21 +14,32 @@ class SelectUploadImage extends StatefulWidget {
 }
 
 class _SelectUploadImage extends State<SelectUploadImage> {
-  File? _image;
+  //File? _image;
+  final _image = <XFile>[];
+  late Widget widgetHolder;
 
-  Future _pickImage(ImageSource source) async {
+  Future _pickImage(String sourceType, ImageSource source) async {
     try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final img = File(image.path);
-      setState(() {
-        _image = img;
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => TensorflowResult(),
-          ),
-        );
-      });
+      if(sourceType == "camera") {
+        final image = await ImagePicker().pickImage(source: source);
+        if (image == null) return;
+        _image.add(image);
+        setState(() {
+          widgetHolder = secondWidget();
+        });
+
+      } else {
+        final List<XFile> images = await ImagePicker().pickMultiImage();
+        if (images == null) return;
+        //final img = File(image.path);
+        setState(() {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => TensorflowResult(),
+            ),
+          );
+        });
+      }
     } on PlatformException catch (e) {
       print(e);
       Navigator.of(context).pop();
@@ -36,27 +47,28 @@ class _SelectUploadImage extends State<SelectUploadImage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    widgetHolder = firstWidget();
+    super.initState();
+  }
+
+  Widget firstWidget() {
     return Dialog(
       child: Container(
-        height: MediaQuery
-            .of(context)
-            .size
-            .height * 0.5,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.20,
-            ),
             Center(
               child: TextButton(
                 onPressed: () {
-                  _pickImage(ImageSource.camera);
+                  _pickImage("camera", ImageSource.camera);
                 },
-                child: Text(
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.primaryColor,
+                  padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
+                ),
+                child: const Text(
                   "Take pictures",
                   style: TextStyle(
                     color: Colors.white,
@@ -64,19 +76,15 @@ class _SelectUploadImage extends State<SelectUploadImage> {
                     fontFamily: "Circular",
                   ),
                 ),
-                style: TextButton.styleFrom(
-                  backgroundColor: AppColors.primaryColor,
-                  padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
-                ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
               child: OutlinedButton(
                 onPressed: () {
-                  _pickImage(ImageSource.gallery);
+                  _pickImage("gallery", ImageSource.gallery);
                 },
                 style: ButtonStyle(
                   side:
@@ -109,5 +117,81 @@ class _SelectUploadImage extends State<SelectUploadImage> {
       ),
     );
   }
-}
 
+  Widget secondWidget() {
+    return Dialog(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  _pickImage("camera", ImageSource.camera);
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.primaryColor,
+                  padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
+                ),
+                child: const Text(
+                  "Yes please!",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontFamily: "Circular",
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: OutlinedButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => TensorflowResult(),
+                      ),
+                    );
+                  });
+                },
+                style: ButtonStyle(
+                  side:
+                  MaterialStateProperty.resolveWith<BorderSide>(
+                        (states) =>
+                    const BorderSide(
+                      color: Colors.green,
+                      width: 1.0,
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Colors.white),
+                  padding:
+                  MaterialStateProperty.all<EdgeInsetsGeometry>(
+                    const EdgeInsets.fromLTRB(60, 20, 60, 20),
+                  ),
+                ),
+                child: const Text(
+                  "No more",
+                  style: TextStyle(
+                    color: AppColors.primaryColor,
+                    fontSize: 13,
+                    fontFamily: "Circular",
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widgetHolder;
+  }
+}
