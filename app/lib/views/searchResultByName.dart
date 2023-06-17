@@ -1,17 +1,18 @@
-import 'package:app/utils/fontFamily.dart';
-import 'package:app/view_models/imageCardAuthor.dart';
-import 'package:app/view_models/savedRecipeCard.dart';
-import 'package:app/views/details.dart';
-import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'package:app/view_models/searchCardByName.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-import '../view_models/searchCardByName.dart';
+import '../view_models/imageCardAuthor.dart';
+import 'details.dart';
 
-class SearchResultByName  extends StatefulWidget{
-  String name;
-  @override
-  State<SearchResultByName> createState() => _SearchResultByNameState();
+class SearchResultByName extends StatefulWidget {
+  final String name;
+
   SearchResultByName({required this.name});
+
+  @override
+  _SearchResultByNameState createState() => _SearchResultByNameState();
 }
 
 class _SearchResultByNameState extends State<SearchResultByName> {
@@ -20,57 +21,58 @@ class _SearchResultByNameState extends State<SearchResultByName> {
   @override
   void initState() {
     super.initState();
-    fetchProducts();
+    fetchData();
   }
 
-  fetchProducts() async {
-    String jsonData = await DefaultAssetBundle.of(context).loadString(
-        'assets/json/data.json');
-    List<dynamic> data = json.decode(jsonData);
-    setState(() {
-      products = data.cast<Map<String, dynamic>>();
-    });
+  fetchData() async {
+    final response = await http.get(Uri.parse("https://editables.online/?name=${widget.name}"));
+
+    if (response.statusCode == 200) {
+      List<dynamic> data = jsonDecode(response.body);
+      setState(() {
+        products = data.cast<Map<String, dynamic>>();
+      });
+    } else {
+      print('Failed to fetch JSON data.');
+    }
   }
+
   @override
   Widget build(BuildContext context) {
-    return( Scaffold(
-      appBar: AppBar(title: Text(widget.name),centerTitle: true,elevation: 0,),
-      body:  SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.name),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: Text("Search Result for",style: TextStyle(fontFamily: AppFontFamily.fontFamily),),
-            ),
-            Column(
-              children:
-              products.map((product) {
-                String author = product["Author"];
-                String image = product["Image Link"];
-                String name = product["Recipe Name"];
-                int id = product["url"];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Details(
-                            id: id,
-                            name:name,
-                            image:image
-                        ),
-                      ),
-                    );
-                  },
-                  child: SearchCardByName(author, name,5, image),
+          children: products.map((product) {
+            String author = product["Author"];
+            String image = product["Image Link"];
+            String name = product["Recipe Name"];
+            int id = 2;
+
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Details(
+                      id: id,
+                      name: name,
+                      image: image,
+                    ),
+                  ),
                 );
-              }).toList(),
-            ),
-          ],
+              },
+              child: SearchCardByName(name,5, image),
+            );
+          }).toList(),
         ),
       ),
-    ));
+    );
   }
 }

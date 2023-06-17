@@ -8,8 +8,8 @@ class SearchCardByName extends StatelessWidget{
   String? imagePath;
 
   SearchCardByName(
-      String day, String recipe, int preparation_time, String imagePath) {
-    this.day = day;
+      String recipe, int preparation_time, String imagePath) {
+
     this.recipe = recipe;
     this.preparation_time = preparation_time;
     this.imagePath = imagePath;
