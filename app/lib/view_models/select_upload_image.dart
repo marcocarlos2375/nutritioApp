@@ -31,11 +31,10 @@ class _SelectUploadImage extends State<SelectUploadImage> {
       } else {
         final List<XFile> images = await ImagePicker().pickMultiImage();
         if (images == null) return;
-        //final img = File(image.path);
         setState(() {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => TensorflowResult(),
+              builder: (context) => TensorflowResult(images: images),
             ),
           );
         });
@@ -153,7 +152,7 @@ class _SelectUploadImage extends State<SelectUploadImage> {
                   setState(() {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => TensorflowResult(),
+                        builder: (context) => TensorflowResult(images: _image),
                       ),
                     );
                   });

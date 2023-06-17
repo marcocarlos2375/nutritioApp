@@ -20,7 +20,6 @@ void main() {
       "details/":(e)=>Details(),
       "home/":(e)=>HomeView(),
       "searchResult/":(e)=>SearchResultView(),
-      "tensorflowResult/":(e)=>TensorflowResult(),
       "notification/":(e)=>NotificationProject()
     },
   ));

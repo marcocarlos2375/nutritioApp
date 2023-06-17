@@ -1,15 +1,19 @@
+import 'dart:io';
+
 import 'package:app/utils/fontFamily.dart';
 import 'package:app/views/searchResult_view.dart';
 import 'package:app/views/week_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../utils/colors.dart';
 import '../view_models/footer_view_model.dart';
 import '../view_models/select_upload_image.dart';
 
 class TensorflowResult extends StatefulWidget {
-  const TensorflowResult({super.key});
+  final List<XFile> images;
+  const TensorflowResult({super.key, required this.images});
 
   @override
   State<TensorflowResult> createState() => _TensorflowResult();
@@ -29,7 +33,7 @@ class _TensorflowResult extends State<TensorflowResult> {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: _FilterButton(),
+        body: _FilterButton(images: widget.images),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showDialog(
@@ -53,6 +57,8 @@ class _TensorflowResult extends State<TensorflowResult> {
 }
 
 class _FilterButton extends StatelessWidget {
+  final List<XFile> images;
+  const _FilterButton({required this.images});
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +119,14 @@ class _FilterButton extends StatelessWidget {
             ),
             SizedBox(
               height: 50,
+            ),
+            for (var item in images)
+            Center(
+              child: Container(
+                width: 500,
+                height: 350,
+                child: Image.file(File(item.path)),
+              )
             ),
             Text(
               "Following incredients detected",
