@@ -125,6 +125,7 @@ class _FilterButton extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
+
             Padding(
               padding: const EdgeInsets.all(0),
               child: Column(

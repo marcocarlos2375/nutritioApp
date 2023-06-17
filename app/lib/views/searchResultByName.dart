@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:app/utils/fontFamily.dart';
 import 'package:app/view_models/searchCardByName.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -41,36 +42,41 @@ class _SearchResultByNameState extends State<SearchResultByName> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.name),
+        title: Text(widget.name,style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.fontFamily),),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: products.map((product) {
-            String author = product["Author"];
-            String image = product["Image Link"];
-            String name = product["Recipe Name"];
-            int id = 2;
+        child: Padding(
+          padding: const EdgeInsets.only(top:28.0),
+          child: Column(
+            children: products.map((product) {
+              String author = product["Author"];
+              String image = product["Image_Link"];
+              String name = product["Recipe_Name"];
+              String Prep_Time = product["Prep_Time"];
 
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Details(
-                      id: id,
-                      name: name,
-                      image: image,
+              int id = 5;
+
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Details(
+                        id: id,
+                        name: name,
+                        image: image,
+                      ),
                     ),
-                  ),
-                );
-              },
-              child: SearchCardByName(name,5, image),
-            );
-          }).toList(),
+                  );
+                },
+                child: SearchCardByName(name,Prep_Time, image),
+              );
+            }).toList(),
+          ),
         ),
       ),
     );

@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 class SearchCardByName extends StatelessWidget{
   String? day;
   String? recipe;
-  int? preparation_time;
+  String? preparation_time;
   String? imagePath;
+  int? star;
 
   SearchCardByName(
-      String recipe, int preparation_time, String imagePath) {
+      String recipe, String preparation_time, String imagePath,int star) {
 
     this.recipe = recipe;
     this.preparation_time = preparation_time;
     this.imagePath = imagePath;
+    this.star = star;
   }
 
   @override
@@ -32,7 +34,7 @@ class SearchCardByName extends StatelessWidget{
                       '$imagePath'),
                   fit: BoxFit.cover,
                 ),
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Container(
                 decoration: BoxDecoration(
@@ -49,26 +51,59 @@ class SearchCardByName extends StatelessWidget{
                 padding: EdgeInsets.all(20),
                 //margin: EdgeInsets.all(10),
                 child:  Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      '$recipe',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: AppFontFamily.fontFamily,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
+                    Expanded(
+                      child:  Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                        Container(width: 50,height: 30,decoration: BoxDecoration(borderRadius: BorderRadius.circular(6),color:AppColors.goldColor ),child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Row(
+                            children: [
+                              Icon(Icons.star,color: AppColors.starColor,size: 15,),
+                              SizedBox(width: 3,),
+                              Text("$star",style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.fontFamily),)
+                            ],
+                          ),
+                        ),)
+                      ],
+                      ),
+                      flex: 3,
+                    ),
+                    Expanded(
+                      child:  SizedBox(height:3 ,),
+                      flex: 4,
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child:  Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '$recipe',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: AppFontFamily.fontFamily,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            'can be cooked in $preparation_time',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontFamily: AppFontFamily.fontFamily,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      'can be cooked in $preparation_time min',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: AppFontFamily.fontFamily,
-                        fontSize: 12,
-                      ),
-                    ),
+
                   ],
                 ),
               ),

@@ -16,7 +16,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   var recipe = Recipe(
-    name: 'Spaghetti puttanesca',
+    name: "",
     image:
         'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/puttanesca-cfb4e42.jpg?quality=90&webp=true&resize=300,272',
     ingredients: [

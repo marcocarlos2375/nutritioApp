@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   image_picker: ^0.8.3
+  tflite: ^1.1.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -103,3 +104,5 @@ flutter:
     - assets/
     - assets/icons/
     - assets/json/data.json
+    - assets/models/ssd_mobilenet.tflite
+    - assets/models/ssd_mobilenet.txt
