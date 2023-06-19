@@ -20,7 +20,7 @@ void main() {
       "savedRecipe/":(e)=>SavedRecipeView(),
       "home/":(e)=>HomeView(),
       "searchResult/":(e)=>SearchResultView(),
-      "notification/":(e)=>NotificationProject()
+      "notification/":(e)=>NotificationProject(),
       "profile/":(e)=>Profile()
     },
   ));
