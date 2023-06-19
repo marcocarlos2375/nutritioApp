@@ -25,13 +25,15 @@ class _SearchResultView extends State<SearchResultView> {
           iconTheme: const IconThemeData(
             color: Colors.black, //change your color here
           ),
-          title: const Text("Search result"),
+          title: const Text("Search result" , style: TextStyle(fontFamily: AppFontFamily.fontFamily,color: Colors.black),),
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0,
         ),
+
         body: _FilterButton(),
         floatingActionButton: FloatingActionButton(
+
           onPressed: () {
             showDialog(
               context: context,
@@ -42,10 +44,11 @@ class _SearchResultView extends State<SearchResultView> {
           },
           backgroundColor: AppColors.primaryColor,
           elevation: 0,
+
           child: SvgPicture.asset(
             'assets/icons/plus.svg',
-            width: 24,
-            height: 24,
+            width: 20,
+            height: 20,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -102,80 +105,7 @@ class _FilterButton extends StatelessWidget {
                     ),
                 ),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height - 85,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  child: GridView.count(
-                    primary: false,
-                    crossAxisSpacing: 15,
-                    mainAxisSpacing: 15,
-                    crossAxisCount: 2,
-                    children: [
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                      ResultRecipeCard(
-                          "Monday",
-                          "Vegan chickpea",
-                          10,
-                          "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272"
-                      ),
-                    ]
-                  ),
-                ),
-              ),
+
             ]
           )
     );
@@ -203,7 +133,7 @@ class _FilterChipExampleState extends State<FilterChipExample> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('Time', style: textTheme.labelLarge),
+          Text('Time', style: TextStyle(fontFamily: AppFontFamily.fontFamily),),
           const SizedBox(height: 5.0),
           Wrap(
             spacing: 5.0,
@@ -213,7 +143,7 @@ class _FilterChipExampleState extends State<FilterChipExample> {
                 selectedColor: AppColors.primaryColor,
                 showCheckmark: false,
                 side: const BorderSide(width: 1.0, color: AppColors.primaryColor),
-                label: Text(exercise.name),
+                label: Text(exercise.name,style: TextStyle(fontFamily: AppFontFamily.fontFamily),),
                 selected: timeFilters.contains(exercise),
                 onSelected: (bool selected) {
                   setState(() {
@@ -228,7 +158,7 @@ class _FilterChipExampleState extends State<FilterChipExample> {
             }).toList(),
           ),
           const SizedBox(height: 10.0),
-          Text('Category', style: textTheme.labelLarge),
+          Text('Category',style: TextStyle(fontFamily: AppFontFamily.fontFamily),),
           const SizedBox(height: 5.0),
           Wrap(
             spacing: 5.0,
@@ -238,7 +168,7 @@ class _FilterChipExampleState extends State<FilterChipExample> {
                 selectedColor: AppColors.primaryColor,
                 showCheckmark: false,
                 side: const BorderSide(width: 1.0, color: AppColors.primaryColor),
-                label: Text(exercise.name),
+                label: Text(exercise.name,style: TextStyle(fontFamily: AppFontFamily.fontFamily,color: AppColors.primaryColor),),
                 selected: categoryFilters.contains(exercise),
                 onSelected: (bool selected) {
                   setState(() {
@@ -255,7 +185,7 @@ class _FilterChipExampleState extends State<FilterChipExample> {
           const SizedBox(height: 10.0),
           Text(
             'Delete me later: ${timeFilters.map((TimeFilter e) => e.name).join(', ')}, ${categoryFilters.map((CategoryFilter e) => e.name).join(', ')}',
-            style: textTheme.labelLarge,
+              style: TextStyle(fontFamily: AppFontFamily.fontFamily),
           ),
           Container(
             width: 174,
@@ -266,7 +196,7 @@ class _FilterChipExampleState extends State<FilterChipExample> {
               },
               style: TextButton.styleFrom(
                 backgroundColor: AppColors.primaryColor,
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                padding: EdgeInsets.fromLTRB(40, 15, 40, 15),
               ),
               child: const Text(
                 "Filter",

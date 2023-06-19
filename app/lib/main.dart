@@ -3,6 +3,7 @@ import 'package:app/views/homeUpload_view.dart';
 import 'package:app/views/home_view.dart';
 import 'package:app/views/intro_view.dart';
 import 'package:app/views/notification.dart';
+import 'package:app/views/profile.dart';
 import 'package:app/views/savedRecipe_view.dart';
 import 'package:app/views/searchResult_view.dart';
 import 'package:app/views/tensorflow_result_view.dart';
@@ -17,10 +18,10 @@ void main() {
       "week_menu/": (e) => WeekMenu(),
       "home_upload/":(e)=>HomeUploadView(),
       "savedRecipe/":(e)=>SavedRecipeView(),
-      "details/":(e)=>Details(),
       "home/":(e)=>HomeView(),
       "searchResult/":(e)=>SearchResultView(),
       "notification/":(e)=>NotificationProject()
+      "profile/":(e)=>Profile()
     },
   ));
 }

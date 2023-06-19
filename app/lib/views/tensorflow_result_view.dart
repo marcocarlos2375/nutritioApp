@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:app/utils/fontFamily.dart';
+import 'package:app/utils/ingredientsImages.dart';
+import 'package:app/view_models/ingredientDetectedBox.dart';
 import 'package:app/views/searchResult_view.dart';
 import 'package:app/views/week_menu.dart';
 import 'package:flutter/material.dart';
