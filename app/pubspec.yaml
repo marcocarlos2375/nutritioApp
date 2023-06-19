@@ -104,6 +104,5 @@ flutter:
   assets:
     - assets/
     - assets/icons/
-    - assets/json/data.json
-    - assets/models/ssd_mobilenet.tflite
-    - assets/models/ssd_mobilenet.txt
+    - assets/json/
+    - assets/models/
