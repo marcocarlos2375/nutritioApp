@@ -1,44 +1,58 @@
 import 'package:app/models/ingredient.dart';
 
 class Recipe {
-  String name;
-  String image;
-  List<Ingredient> ingredients;
-  List<String> instructions;
-  Duration preparationTime;
-  Duration cookingTime;
-  int servingSize;
-  String difficulty;
-  String description;
-  Map<String, String> nutrition;
+  String? name;
+  String? image;
+  List<Ingredient>? ingredients;
+  List<String>? instructions;
+  Duration? preparationTime;
+  Duration? cookingTime;
+  int? servingSize;
+  String? difficulty;
+  String? description;
+  Map<String, String>? nutrition;
 
   Recipe({
-    required this.name,
-    required this.image,
-    required this.ingredients,
-    required this.instructions,
-    required this.preparationTime,
-    required this.cookingTime,
-    required this.servingSize,
-    required this.difficulty,
-    required this.description,
-    required this.nutrition
+     this.name,
+     this.image,
+    this.ingredients,
+     this.instructions,
+     this.preparationTime,
+     this.cookingTime,
+     this.servingSize,
+     this.difficulty,
+     this.description,
+     this.nutrition
   });
 
-  @override
-  String toString() {
-    var result = 'Recipe: $name\nIngredients:\n';
-    for (var ingredient in ingredients) {
-      result += '- ${ingredient.toString()}\n';
-    }
-    return result;
-  }
+  get prepTime => null;
 
-  void addIngredient(Ingredient ingredient) {
-    ingredients.add(ingredient);
-  }
+  get cookTime => null;
 
-  void removeIngredient(Ingredient ingredient) {
-    ingredients.remove(ingredient);
-  }
+  get servings => null;
+
+  get nutritionInfo => null;
+
+  set url(url) {}
+
+  set nutritionInfo(nutritionInfo) {}
+
+  set ratingsCount(ratingsCount) {}
+
+  set rating(rating) {}
+
+  set author(author) {}
+
+  set servings(servings) {}
+
+  set cookTime(cookTime) {}
+
+  set prepTime(prepTime) {}
+
+  set imageLink(imageLink) {}
+
+  set id(id) {}
+
+
+
 }

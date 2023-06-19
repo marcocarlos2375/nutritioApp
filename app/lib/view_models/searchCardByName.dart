@@ -6,11 +6,10 @@ class SearchCardByName extends StatelessWidget{
   String? recipe;
   String? preparation_time;
   String? imagePath;
-  int? star;
+  String? star;
 
   SearchCardByName(
-      String recipe, String preparation_time, String imagePath,int star) {
-
+      String recipe, String preparation_time, String imagePath,String star) {
     this.recipe = recipe;
     this.preparation_time = preparation_time;
     this.imagePath = imagePath;

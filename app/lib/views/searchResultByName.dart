@@ -42,7 +42,7 @@ class _SearchResultByNameState extends State<SearchResultByName> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.name,style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.fontFamily),),
+        title: Text("Results for ${widget.name}",style: TextStyle(color: Colors.black,fontFamily: AppFontFamily.fontFamily),),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
@@ -50,15 +50,28 @@ class _SearchResultByNameState extends State<SearchResultByName> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top:28.0),
+          padding: const EdgeInsets.only(top:38.0),
           child: Column(
             children: products.map((product) {
               String author = product["Author"];
               String image = product["Image_Link"];
               String name = product["Recipe_Name"];
               String Prep_Time = product["Prep_Time"];
+              String rating =product["Rating"];
 
-              int id = 5;
+
+
+              RegExp regex = RegExp(r'(\d+\.\d+)');
+              Match? match = regex.firstMatch(rating);
+
+              if (match != null) {
+                 rating = match.group(0)!;
+              }else{
+                rating="4.0";
+              }
+
+              int id = int.parse(product["id"]);
+              assert(id is int);
 
               return GestureDetector(
                 onTap: () {
@@ -73,7 +86,7 @@ class _SearchResultByNameState extends State<SearchResultByName> {
                     ),
                   );
                 },
-                child: SearchCardByName(name,Prep_Time, image),
+                child: SearchCardByName(name,Prep_Time, image,rating),
               );
             }).toList(),
           ),
