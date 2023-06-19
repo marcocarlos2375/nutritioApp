@@ -41,6 +41,7 @@ class _TensorflowResult extends State<TensorflowResult> {
 
   loadModel() async{
     Tflite.close();
+
     await Tflite.loadModel(
         model: 'assets/model/ssd_mobilenet.tflite',
         labels: 'assets/model/ssd_mobilenet.txt'
@@ -55,10 +56,6 @@ class _TensorflowResult extends State<TensorflowResult> {
         threshold: 0.6,
         imageMean: 127.5,
         imageStd: 127.5);
-
-    for (var i = 0; i < output!.length; i++) {
-      debugPrint('The following label was found: ${output![i]["detectedClass"]}');
-    }
 
     setState(() {
       _output = output;
