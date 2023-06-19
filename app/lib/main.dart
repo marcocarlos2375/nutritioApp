@@ -20,8 +20,7 @@ void main() {
       "savedRecipe/":(e)=>SavedRecipeView(),
       "home/":(e)=>HomeView(),
       "searchResult/":(e)=>SearchResultView(),
-      "tensorflowResult/":(e)=>TensorflowResult(),
-      "notification/":(e)=>NotificationProject(),
+      "notification/":(e)=>NotificationProject()
       "profile/":(e)=>Profile()
     },
   ));
