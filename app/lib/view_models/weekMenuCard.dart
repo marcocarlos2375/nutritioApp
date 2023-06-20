@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class WeekMenuCard extends StatelessWidget {
   String? day;
   String? recipe;
-  int? preparation_time;
+  String? preparation_time;
   String? imagePath;
 
   WeekMenuCard(
-      String day, String recipe, int preparation_time, String imagePath) {
+      String day, String recipe, String preparation_time, String imagePath) {
     this.day = day;
     this.recipe = recipe;
     this.preparation_time = preparation_time;
@@ -88,7 +88,7 @@ class WeekMenuCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'can be cooked in $preparation_time min',
+                      'can be cooked in $preparation_time',
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Circular',
