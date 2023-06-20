@@ -19,8 +19,6 @@ void main() {
       "home_upload/":(e)=>HomeUploadView(),
       "savedRecipe/":(e)=>SavedRecipeView(),
       "home/":(e)=>HomeView(),
-      "searchResult/":(e)=>SearchResultView(),
-      "tensorflowResult/":(e)=>TensorflowResult(),
       "notification/":(e)=>NotificationProject(),
       "profile/":(e)=>Profile()
     },

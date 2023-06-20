@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:app/view_models/imageCardAuthor.dart';
 import 'package:app/views/details.dart';
 import 'package:flutter/material.dart';
