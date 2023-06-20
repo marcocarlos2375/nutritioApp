@@ -27,7 +27,7 @@ class TensorflowResult extends StatefulWidget {
 
 class _TensorflowResult extends State<TensorflowResult> {
   bool _loading = true;
-  List? _output;
+  List? _output = [];
 
   @override
   void initState(){
@@ -42,8 +42,8 @@ class _TensorflowResult extends State<TensorflowResult> {
   loadModel() async{
     Tflite.close();
     await Tflite.loadModel(
-        model: 'assets/model/ssd_mobilenet.tflite',
-        labels: 'assets/model/ssd_mobilenet.txt'
+        model: 'assets/models/ssd_mobilenet.tflite',
+        labels: 'assets/models/ssd_mobilenet.txt'
     );
     debugPrint("TFLite Model loaded!");
   }
@@ -57,7 +57,7 @@ class _TensorflowResult extends State<TensorflowResult> {
         imageStd: 127.5);
 
     for (var i = 0; i < output!.length; i++) {
-      debugPrint('The following label was found: ${output![i]["detectedClass"]}');
+      debugPrint('The following label was found: ${output[i]["detectedClass"]}');
     }
 
     setState(() {
@@ -107,7 +107,7 @@ class _TensorflowResult extends State<TensorflowResult> {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => SearchResultView(),
+                                  builder: (context) => SearchResultView(output: _output),
                                 ),
                               );
                             },
@@ -125,7 +125,7 @@ class _TensorflowResult extends State<TensorflowResult> {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (context) => WeekMenu(),
+                                    builder: (context) => WeekMenu(output: _output),
                                   ),
                                 );
                               },
