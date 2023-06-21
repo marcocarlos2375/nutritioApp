@@ -53,6 +53,7 @@ class _SearchResultView extends State<SearchResultView> {
       });
     } else {
       print('Failed to fetch JSON data.');
+      print(widget.output);
     }
   }
 
@@ -80,9 +81,6 @@ class _SearchResultView extends State<SearchResultView> {
                   String name = product["Recipe_Name"];
                   String Prep_Time = product["Prep_Time"];
                   String rating =product["Rating"];
-
-
-
                   RegExp regex = RegExp(r'(\d+.\d+)');
                   Match? match = regex.firstMatch(rating);
 
