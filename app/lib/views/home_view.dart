@@ -1,6 +1,7 @@
 import 'package:app/services/foodData.dart';
 import 'package:app/utils/fontFamily.dart';
 import 'package:app/view_models/footer_view_model.dart';
+import 'package:app/view_models/homeSuggestionSmall.dart';
 import 'package:app/view_models/imageCardAuthor.dart';
 import 'package:app/views/details.dart';
 import 'package:app/views/searchResultByName.dart';
@@ -9,6 +10,7 @@ import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:app/view_models/select_upload_image.dart';
 
+import '../view_models/homeSuggestion.dart';
 import '../view_models/savedRecipeCard.dart';
 
 class HomeView extends StatefulWidget {
@@ -115,9 +117,10 @@ class _HomeViewState extends State<HomeView> {
                       "Recommandation",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "Circular",
+                          fontFamily: AppFontFamily.fontFamily,
                           color: Colors.black),
                     ),
+
                     SizedBox(
                       height: 20,
                     ),
@@ -170,49 +173,29 @@ class _HomeViewState extends State<HomeView> {
                       height: 25,
                     ),
                     Container(
-                      height: 210,
+                      height: 310,
                       // This height is the remaining height minus the estimated heights of the above widgets.
                       child: TabBarView(
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.symmetric(vertical: 5.0),
                             height: 220.0,
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: <Widget>[
-                                ImageCardAuthor(
-                                    "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-curry-46f4bc8.jpg?quality=90&webp=true&resize=300,272",
-                                    "Vegan chickpea  ",
-                                    "Anna Berry"),
-                                ImageCardAuthor(
-                                    "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/bubble-857a9ea.jpg?quality=90&webp=true&resize=300,272",
-                                    "Poached eggs",
-                                    "Jennifer Irvine"),
-                                ImageCardAuthor(
-                                    "https://images.immediate.co.uk/production/volatile/sites/30/2022/09/Pochierte-Eierpoached-eggsFruehstueckBrunchZubereitungMethodevegetarisch.-97fc78d.jpg?quality=90&webp=true&resize=300,272",
-                                    "Poached eggs",
-                                    "Anna Berry"),
-                                // You can add more containers here
-                              ],
-                            ),
+                            child:  HomeSuggestionSmall("egg"),
                           ),
                           Container(
                             height: 350, // Define the height as you want
                             child: Center(
-                                child: Text('Settings Page',
-                                    style: TextStyle(fontFamily: "Circular"))),
+                                child: HomeSuggestionSmall("breakfast")),
                           ),
                           Container(
                             height: 350, // Define the height as you want
                             child: Center(
-                                child: Text('Profile Page',
-                                    style: TextStyle(fontFamily: "Circular"))),
+                                child: HomeSuggestionSmall("chicken")),
                           ),
                           Container(
                             height: 350, // Define the height as you want
                             child: Center(
-                                child: Text('Profile Page',
-                                    style: TextStyle(fontFamily: "Circular"))),
+                                child: HomeSuggestionSmall("vegan")),
                           ),
                         ],
                       ),
@@ -227,10 +210,15 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       textAlign: TextAlign.left,
                     ),
+                    SizedBox(height: 20,),
+                    Column(children: [
+                      HomeSuggestion()
+                    ],),
+
                     SizedBox(
                       height: 15,
                     ),
-                    FoodData()
+
                   ],
                 ),
               );

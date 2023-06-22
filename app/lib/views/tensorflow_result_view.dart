@@ -145,7 +145,7 @@ class _TensorflowResult extends State<TensorflowResult> {
                     "Select the next step",
                     style: TextStyle(
                         fontSize: 20,
-                        fontFamily: "Circular",
+                        fontFamily: AppFontFamily.fontFamily,
                         fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
@@ -169,7 +169,7 @@ class _TensorflowResult extends State<TensorflowResult> {
                                 ),
                               );
                             },
-                            child: Text("Show recipe", style: TextStyle(color: Colors.white))
+                            child: Text("Show Recipes", style: TextStyle(color: Colors.white))
                         ),
                       ),
                       SizedBox(width: 30),
