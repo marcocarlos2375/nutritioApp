@@ -28,14 +28,21 @@ class TensorflowResult extends StatefulWidget {
 class _TensorflowResult extends State<TensorflowResult> {
   bool _loading = true;
   List? _output = [];
+  var _output_seen = Set<String>();
+  List? _uioutput = [];
 
   @override
   void initState(){
     super.initState();
-    loadModel().then((value){
-      detectImage(File(widget.images[0].path));
+    loadModel().then((value) async {
+      await Future.forEach(widget.images, (item) async {
+        await detectImage(File(item.path));
+        //await Future.delayed(const Duration(seconds: 3));
+      });
     }).then((value){
-      setState(() {});
+      setState(() {
+        _uioutput = _output?.where((item) => _output_seen.add(item["detectedClass"])).toList();
+      });
     });
   }
 
@@ -57,11 +64,13 @@ class _TensorflowResult extends State<TensorflowResult> {
         imageStd: 127.5);
 
     for (var i = 0; i < output!.length; i++) {
-      debugPrint('The following label was found: ${output[i]["detectedClass"]}');
+      output[i]["image"] = image;
+      debugPrint('The following label was found: ${output[i]["detectedClass"]} at ${output[i]["confidenceInClass"]}');
     }
 
     setState(() {
-      _output = output;
+      _output?.addAll(output);
+      print(_output);
       _loading = false;
     });
   }
@@ -83,6 +92,55 @@ class _TensorflowResult extends State<TensorflowResult> {
               padding: EdgeInsets.all(8.0),
               child: Column(
                 children: [
+                  Text(
+                    "This are your images",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: "Circular",
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(0),
+                    child: Column(
+                      children: [
+                        for (var item in _uioutput!)...[
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Image.file(item["image"],
+                            width: MediaQuery.of(context).size.width * 0.80,
+                            height: MediaQuery.of(context).size.width * 0.46,
+                            fit: BoxFit.cover,),
+                        ]
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Following incredients detected",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: "Circular",
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(0),
+                    child: Column(
+                      children: [
+                        for (var item in _uioutput!)...[
+                          IngredientDetectedBox(widget._IngredientsImages.getPicture(item["detectedClass"]), item["detectedClass"], item["confidenceInClass"]),
+                        ]
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Text(
                     "Select the next step",
                     style: TextStyle(
@@ -133,28 +191,6 @@ class _TensorflowResult extends State<TensorflowResult> {
                           )
                       )
                     ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    "Following incredients detected",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: "Circular",
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: Column(
-                      children: [
-                        for (var item in _output!)
-                          IngredientDetectedBox(widget._IngredientsImages.getPicture(item["detectedClass"]), item["detectedClass"]),
-                      ],
-                    ),
                   ),
                 ],
               )

@@ -5,10 +5,12 @@ import '../utils/fontFamily.dart';
 class IngredientDetectedBox extends StatelessWidget {
   String? ingredientName;
   String? ingredientImagePath;
+  double? ingredientScore;
 
-  IngredientDetectedBox(String ingredientImagePath, String ingredientName) {
+  IngredientDetectedBox(String ingredientImagePath, String ingredientName, double ingredientScore) {
     this.ingredientImagePath = ingredientImagePath;
     this.ingredientName = ingredientName;
+    this.ingredientScore = ingredientScore;
   }
 
   @override
@@ -40,7 +42,15 @@ class IngredientDetectedBox extends StatelessWidget {
                       fontSize: 16,
                       fontFamily: AppFontFamily.fontFamily,
                       fontWeight: FontWeight.w600),
-                ),
+                  ),
+                  SizedBox(width: 15),
+                  Text(
+                    'Score: $ingredientScore',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: AppFontFamily.fontFamily,
+                        fontWeight: FontWeight.w600),
+                  ),
               ])),
     );
   }
