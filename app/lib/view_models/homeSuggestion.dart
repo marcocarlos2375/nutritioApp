@@ -1,10 +1,10 @@
-import 'package:app/view_models/homeCardModel.dart';
-import 'package:app/view_models/searchCardByName.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+
 import '../views/details.dart';
+import 'homeCardModel.dart';
 class HomeSuggestion extends StatefulWidget{
   @override
   State<HomeSuggestion> createState() => _HomeSuggestionState();
@@ -36,13 +36,16 @@ class _HomeSuggestionState extends State<HomeSuggestion> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
+      height: 240,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: products.map((product) {
           String author = product["Author"];
           String image = product["Image_Link"];
           String name = product["Recipe_Name"];
+          if (name.length > 35) {
+            name = name.substring(0, 35);
+          }
           String prepTime = product["Prep_Time"];
           String rating = product["Rating"];
           RegExp regex = RegExp(r'(\d+.\d+)');

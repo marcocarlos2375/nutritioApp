@@ -1,5 +1,3 @@
-import 'package:app/view_models/homeCardModel.dart';
-import 'package:app/view_models/searchCardByName.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -42,7 +40,7 @@ class _HomeSuggestionSmallState extends State<HomeSuggestionSmall> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 300,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: products.map((product) {

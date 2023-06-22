@@ -1,6 +1,5 @@
 import 'package:app/utils/fontFamily.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../utils/colors.dart';
 import '../view_models/footer_view_model.dart';
@@ -103,11 +102,7 @@ class _NotificationState extends State<NotificationProject> {
           },
           backgroundColor: AppColors.primaryColor,
           elevation: 0,
-          child: SvgPicture.asset(
-            'icons/plus.svg',
-            width: 24,
-            height: 24,
-          ),
+          child: Icon(Icons.camera_alt),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: FooterViewModel());

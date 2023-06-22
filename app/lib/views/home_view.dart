@@ -1,24 +1,19 @@
-import 'package:app/services/foodData.dart';
-import 'package:app/utils/fontFamily.dart';
-import 'package:app/view_models/footer_view_model.dart';
-import 'package:app/view_models/homeSuggestionSmall.dart';
-import 'package:app/view_models/imageCardAuthor.dart';
-import 'package:app/views/details.dart';
 import 'package:app/views/searchResultByName.dart';
 import 'package:flutter/material.dart';
-import 'package:app/utils/colors.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:app/view_models/select_upload_image.dart';
 
+import '../utils/colors.dart';
+import '../utils/fontFamily.dart';
+import '../view_models/footer_view_model.dart';
 import '../view_models/homeSuggestion.dart';
-import '../view_models/savedRecipeCard.dart';
+import '../view_models/homeSuggestionSmall.dart';
+import '../view_models/select_upload_image.dart';
 
-class HomeView extends StatefulWidget {
+class Home extends StatefulWidget{
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeState extends State<Home> {
   final myController = TextEditingController();
 
   @override
@@ -27,7 +22,6 @@ class _HomeViewState extends State<HomeView> {
     myController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
         title: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Text(
-            "Nutritio",
+            "Nutritio..",
             style: TextStyle(
               fontFamily: AppColors.fontFamily,
               fontWeight: FontWeight.w600,
@@ -144,7 +138,7 @@ class _HomeViewState extends State<HomeView> {
                               "All",
                               style: TextStyle(
                                 height:
-                                    1.75, // This is for line-height, it's a multiplier, not pixel value
+                                1.75, // This is for line-height, it's a multiplier, not pixel value
                               ),
                             ),
                           ),
@@ -173,27 +167,27 @@ class _HomeViewState extends State<HomeView> {
                       height: 25,
                     ),
                     Container(
-                      height: 310,
+                      height: 250,
                       // This height is the remaining height minus the estimated heights of the above widgets.
                       child: TabBarView(
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.symmetric(vertical: 5.0),
                             height: 220.0,
-                            child:  HomeSuggestionSmall("egg"),
+                            child: HomeSuggestionSmall("egg"),
                           ),
                           Container(
-                            height: 350, // Define the height as you want
+                            height: 250, // Define the height as you want
                             child: Center(
                                 child: HomeSuggestionSmall("breakfast")),
                           ),
                           Container(
-                            height: 350, // Define the height as you want
+                            height: 250, // Define the height as you want
                             child: Center(
                                 child: HomeSuggestionSmall("chicken")),
                           ),
                           Container(
-                            height: 350, // Define the height as you want
+                            height: 250, // Define the height as you want
                             child: Center(
                                 child: HomeSuggestionSmall("vegan")),
                           ),
@@ -201,7 +195,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     Text(
-                      "Turn your day into a sweet day",
+                      "Our Selection this week",
                       style: TextStyle(
                         fontSize: 17,
                         fontFamily: "Circular",
@@ -218,6 +212,20 @@ class _HomeViewState extends State<HomeView> {
                     SizedBox(
                       height: 15,
                     ),
+                    Text(
+                      "Drinks Sweet Day",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontFamily: "Circular",
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(height: 20,),
+                    Column(children: [
+                      HomeSuggestionSmall("cocktail")
+                    ],),
 
                   ],
                 ),
@@ -237,11 +245,7 @@ class _HomeViewState extends State<HomeView> {
         },
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
-        child: SvgPicture.asset(
-          'assets/icons/plus.svg',
-          width: 24,
-          height: 24,
-        ),
+        child:Icon(Icons.camera_alt),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: FooterViewModel(),

@@ -4,7 +4,6 @@ import 'package:app/utils/fontFamily.dart';
 import 'package:app/views/searchResult_view.dart';
 import 'package:app/views/week_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../utils/colors.dart';
@@ -207,11 +206,7 @@ class _TensorflowResult extends State<TensorflowResult> {
           },
           backgroundColor: AppColors.primaryColor,
           elevation: 0,
-          child: SvgPicture.asset(
-            'assets/icons/plus.svg',
-            width: 24,
-            height: 24,
-          ),
+          child: Icon(Icons.camera_alt),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const FooterViewModel());

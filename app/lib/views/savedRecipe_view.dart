@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../utils/colors.dart';
 import '../view_models/footer_view_model.dart';
 import '../view_models/savedRecipeCard.dart';
 import '../view_models/select_upload_image.dart';
-import '../view_models/weekMenuCard.dart';
 
 class SavedRecipeView extends StatefulWidget {
   @override
@@ -67,13 +65,7 @@ class _SavedRecipeViewState extends State<SavedRecipeView> {
             },
           );
         },
-        child: SvgPicture.asset(
-          'assets/icons/plus.svg',
-          // Adjust the path to match the actual location of your SVG file
-          width: 24,
-          height: 24,
-          color: Colors.white,
-        ), //icon inside button
+        child: Icon(Icons.camera_alt), //icon inside button
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: FooterViewModel(),

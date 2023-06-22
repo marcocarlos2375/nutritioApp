@@ -1,9 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:app/utils/fontFamily.dart';
 import 'package:app/view_models/footer_view_model.dart';
-import 'package:app/view_models/resultRecipeCard.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
@@ -126,11 +124,7 @@ class _SearchResultView extends State<SearchResultView> {
           backgroundColor: AppColors.primaryColor,
           elevation: 0,
 
-          child: SvgPicture.asset(
-            'assets/icons/plus.svg',
-            width: 20,
-            height: 20,
-          ),
+          child: Icon(Icons.camera_alt),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const FooterViewModel());
