@@ -50,6 +50,7 @@ class _TensorflowResult extends State<TensorflowResult> {
   List? _output = [];
   var _output_seen = Set<String>();
   List? _uioutput = [];
+  bool _foundItems = false;
 
   @override
   void initState() {
@@ -64,6 +65,13 @@ class _TensorflowResult extends State<TensorflowResult> {
         _uioutput = _output
             ?.where((item) => _output_seen.add(item["detectedClass"]))
             .toList();
+
+        for(var item in _output_seen) {
+          _foundItems = widget._IngredientsImages.contains(item);
+          if(_foundItems == true) {
+            break;
+          }
+        }
       });
     });
   }
@@ -222,6 +230,7 @@ class _TensorflowResult extends State<TensorflowResult> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      if(_foundItems)...[
                       Container(
                         width: MediaQuery.of(context).size.width * 0.80,
                         decoration: const BoxDecoration(
@@ -269,6 +278,7 @@ class _TensorflowResult extends State<TensorflowResult> {
                                         color: AppColors.primaryColor,
                                         fontFamily: AppFontFamily.fontFamily)),
                               ))),
+                      ],
                       TextButton(
                         onPressed: () {
                           showDialog(

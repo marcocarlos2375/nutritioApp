@@ -130,7 +130,7 @@ class _SelectUploadImageState extends State<SelectUploadImage> {
                   padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
                 ),
                 child: const Text(
-                  "Prendre plus de photos",
+                  "Take more pictures",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 13,
@@ -167,7 +167,7 @@ class _SelectUploadImageState extends State<SelectUploadImage> {
                   ),
                 ),
                 child: const Text(
-                  "Plus besoin",
+                  "No need",
                   style: TextStyle(
                     color: AppColors.primaryColor,
                     fontSize: 13,
