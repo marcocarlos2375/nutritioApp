@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../utils/ingredientsImages.dart';
 import '../view_models/searchCardByName.dart';
 import '../view_models/select_upload_image.dart';
 import 'package:http/http.dart' as http;
@@ -16,6 +17,7 @@ import 'details.dart';
 
 class SearchResultView extends StatefulWidget {
   List? output;
+  IngredientsImages _IngredientsImages = IngredientsImages();
   SearchResultView({super.key, required this.output});
 
   @override
@@ -36,9 +38,11 @@ class _SearchResultView extends State<SearchResultView> {
 
     for (var item in widget.output!) {
       if(finalList == "") {
-        finalList += item["detectedClass"];
+        if (widget._IngredientsImages.contains(item["detectedClass"])) {
+        finalList += item["detectedClass"];}
       } else {
-        finalList += ',${item["detectedClass"]}';
+        if (widget._IngredientsImages.contains(item["detectedClass"])) {
+        finalList += ',${item["detectedClass"]}';}
       }
     }
 

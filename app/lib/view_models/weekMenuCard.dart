@@ -87,12 +87,14 @@ class WeekMenuCard extends StatelessWidget {
                         //fontWeight: FontWeight.w600,
                       ),
                     ),
+                    SizedBox(height: 3,),
                     Text(
                       'can be cooked in $preparation_time',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.grey.shade400,
                         fontFamily: 'Circular',
-                        fontSize: 14,
+                        fontSize: 13,
+
                       ),
                     ),
                   ],

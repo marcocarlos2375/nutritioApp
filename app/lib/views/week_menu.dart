@@ -5,11 +5,13 @@ import 'package:app/view_models/weekMenuCard.dart';
 import 'package:http/http.dart' as http;
 
 import '../utils/ingredientsImages.dart';
+import 'details.dart';
 
 class WeekMenu extends StatefulWidget {
   List? output;
   IngredientsImages _IngredientsImages = IngredientsImages();
-  WeekMenu({super.key,this.output});
+
+  WeekMenu({super.key, this.output});
 
   @override
   State<WeekMenu> createState() => _WeekMenuState();
@@ -17,6 +19,7 @@ class WeekMenu extends StatefulWidget {
 
 class _WeekMenuState extends State<WeekMenu> {
   List<Map<String, dynamic>> products = [];
+  List<String> days= ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
   @override
   void initState() {
@@ -28,33 +31,29 @@ class _WeekMenuState extends State<WeekMenu> {
     var finalList = "";
 
     for (var item in widget.output!) {
-      if(finalList == "") {
-        if(widget._IngredientsImages.contains(item["detectedClass"])){
+      if (finalList == "") {
+        if (widget._IngredientsImages.contains(item["detectedClass"])) {
           finalList += item["detectedClass"];
         }
-
       } else {
-        if(widget._IngredientsImages.contains(item["detectedClass"])){
-        finalList += ',${item["detectedClass"]}';
+        if (widget._IngredientsImages.contains(item["detectedClass"])) {
+          finalList += ',${item["detectedClass"]}';
         }
       }
     }
 
-    final response = await http.get(Uri.parse('https://editables.online/?week_menu_with_ingredients=${finalList}'));
+    final response = await http.get(Uri.parse(
+        'https://editables.online/?week_menu_with_ingredients=${finalList}'));
 
     if (response.statusCode == 200) {
-      print(finalList);
-      print(finalList);
-      print(finalList);
-      print(finalList);
-      print(finalList);
+
       List<dynamic> data = jsonDecode(response.body);
       setState(() {
         products = data.cast<Map<String, dynamic>>();
       });
     } else {
       print('Failed to fetch JSON data.');
-      print(finalList);
+
     }
   }
 
@@ -68,7 +67,8 @@ class _WeekMenuState extends State<WeekMenu> {
         ),
         title: Text(
           "Week Menu suggestion",
-          style: TextStyle(color: Colors.black, fontFamily: "Circular",fontSize: 18),
+          style: TextStyle(
+              color: Colors.black, fontFamily: "Circular", fontSize: 18),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -81,22 +81,42 @@ class _WeekMenuState extends State<WeekMenu> {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 50, 20, 10),
-                  child: Text("Week menu",
+                  child: Text(
+                    "Week menu",
                     style: TextStyle(
-                      color: Colors.black, fontFamily: "Circular", fontSize: 22,fontWeight:FontWeight.w600,),textAlign: TextAlign.left,),
+                      color: Colors.black,
+                      fontFamily: "Circular",
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
                 //IconButton(onPressed: (){}, icon: Icons.accessibility_new_outlined),
               ],
             ),
-            SizedBox(height: 10,),
-            if(products.isNotEmpty)...[
-              WeekMenuCard("Monday", products[0]["Recipe_Name"],products[0]["Prep_Time"],products[0]["Image_Link"]),
-              WeekMenuCard("Tuesday",products[1]["Recipe_Name"],products[1]["Prep_Time"],products[1]["Image_Link"]),
-              WeekMenuCard("Wednesday",products[2]["Recipe_Name"],products[2]["Prep_Time"],products[2]["Image_Link"]),
-              WeekMenuCard("Thursday",products[3]["Recipe_Name"],products[3]["Prep_Time"],products[3]["Image_Link"]),
-              WeekMenuCard("Friday",products[4]["Recipe_Name"],products[4]["Prep_Time"],products[4]["Image_Link"]),
-              WeekMenuCard("Saturday",products[5]["Recipe_Name"],products[5]["Prep_Time"],products[5]["Image_Link"]),
-              WeekMenuCard("Sunday",products[6]["Recipe_Name"],products[6]["Prep_Time"],products[6]["Image_Link"]),
+            SizedBox(
+              height: 10,
+            ),
+            if (products.isNotEmpty) ...[
+              for (int i = 0; i < products.length; i++)...
+                [
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Details(
+                              id: int.parse(products[i]["id"]),
+                              name: products[i]["Recipe_Name"],
+                              image: products[i]["Image_Link"],
+                            ),
+                          ),
+                        );
+                      },
+                      child: WeekMenuCard(days[i], products[i]["Recipe_Name"],
+                          products[i]["Prep_Time"], products[i]["Image_Link"]))
+                ]
             ]
           ],
         ),
