@@ -28,7 +28,7 @@ class HomeCardModel extends StatelessWidget{
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.70,
-                height: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.width * 0.45,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(

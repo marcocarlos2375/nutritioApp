@@ -3,27 +3,28 @@ import 'package:app/models/ingredient.dart';
 class Recipe {
   String? name;
   String? image;
-  List<Ingredient>? ingredients;
+  List<String>? ingredients;
   List<String>? instructions;
-  Duration? preparationTime;
-  Duration? cookingTime;
-  int? servingSize;
+  String? preparationTime;
+  String? cookingTime;
+  String? servingSize;
   String? difficulty;
   String? description;
+  String? test;
   Map<String, String>? nutrition;
 
-  Recipe({
-     this.name,
-     this.image,
-    this.ingredients,
-     this.instructions,
-     this.preparationTime,
-     this.cookingTime,
-     this.servingSize,
-     this.difficulty,
-     this.description,
-     this.nutrition
-  });
+  Recipe(
+      {this.name,
+      this.image,
+      this.ingredients,
+      this.instructions,
+      this.preparationTime,
+      this.cookingTime,
+      this.servingSize,
+      this.difficulty,
+      this.description,
+      this.nutrition,
+      this.test});
 
   get prepTime => null;
 
@@ -52,7 +53,4 @@ class Recipe {
   set imageLink(imageLink) {}
 
   set id(id) {}
-
-
-
 }

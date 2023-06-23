@@ -26,7 +26,7 @@ class SearchCardByName extends StatelessWidget{
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 0.80,
-              height: MediaQuery.of(context).size.width * 0.42,
+              height: MediaQuery.of(context).size.width * 0.46,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(

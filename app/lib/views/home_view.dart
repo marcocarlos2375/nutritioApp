@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
         title: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Text(
-            "Nutritio..",
+            "Nutritio0.",
             style: TextStyle(
               fontFamily: AppColors.fontFamily,
               fontWeight: FontWeight.w600,
@@ -205,12 +205,14 @@ class _HomeState extends State<Home> {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 20,),
-                    Column(children: [
+                    Column(
+
+                      children: [
                       HomeSuggestion()
                     ],),
 
                     SizedBox(
-                      height: 15,
+                      height: 45,
                     ),
                     Text(
                       "Drinks Sweet Day",

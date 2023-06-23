@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:app/view_models/weekMenuCard.dart';
 import 'package:http/http.dart' as http;
 
+import '../utils/ingredientsImages.dart';
+
 class WeekMenu extends StatefulWidget {
   List? output;
+  IngredientsImages _IngredientsImages = IngredientsImages();
   WeekMenu({super.key,this.output});
 
   @override
@@ -26,21 +29,32 @@ class _WeekMenuState extends State<WeekMenu> {
 
     for (var item in widget.output!) {
       if(finalList == "") {
-        finalList += item["detectedClass"];
+        if(widget._IngredientsImages.contains(item["detectedClass"])){
+          finalList += item["detectedClass"];
+        }
+
       } else {
+        if(widget._IngredientsImages.contains(item["detectedClass"])){
         finalList += ',${item["detectedClass"]}';
+        }
       }
     }
 
     final response = await http.get(Uri.parse('https://editables.online/?week_menu_with_ingredients=${finalList}'));
 
     if (response.statusCode == 200) {
+      print(finalList);
+      print(finalList);
+      print(finalList);
+      print(finalList);
+      print(finalList);
       List<dynamic> data = jsonDecode(response.body);
       setState(() {
         products = data.cast<Map<String, dynamic>>();
       });
     } else {
       print('Failed to fetch JSON data.');
+      print(finalList);
     }
   }
 

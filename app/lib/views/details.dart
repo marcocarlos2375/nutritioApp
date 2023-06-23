@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/ingredient.dart';
 import '../models/recipe.dart';
 import '../utils/fontFamily.dart';
 import 'package:http/http.dart' as http;
@@ -41,7 +40,7 @@ class _DetailsState extends State<Details> {
         recipe.name = data["Recipe_Name"];
         recipe.description = data["Description"];
         recipe.imageLink = data["Image_Link"];
-        recipe.ingredients = parseIngredients(data["Ingredients"]);
+        recipe.ingredients = parseIngredients(data["Ingredients"]).cast<String>();
         recipe.instructions = parseInstructions(data["Instructions"]);
         recipe.prepTime = data["Prep_Time"];
         recipe.cookTime = data["Cook_Time"];
@@ -50,8 +49,9 @@ class _DetailsState extends State<Details> {
         recipe.author = data["Author"];
         recipe.rating = data["Rating"];
         recipe.ratingsCount = data["Ratings_Count"];
-        recipe.nutritionInfo = data["Nutrition_Info"];
+        //recipe.nutritionInfo = parseNutritionInfo(data["Nutrition_Info"]);
         recipe.url = data["url"];
+        recipe.test = parseNutritionInfo(data["Nutrition_Info"]);
 
         setState(() {
           // Update the widget after fetching and parsing the data
@@ -64,18 +64,27 @@ class _DetailsState extends State<Details> {
     }
   }
 
-  List<Ingredient> parseIngredients(String ingredients) {
+  String parseNutritionInfo(String nutritionString) {
+  //nutritionString = nutritionString.replaceAll(":", "=");
+  nutritionString = nutritionString.replaceAll("[", "{");
+  nutritionString = nutritionString.replaceAll("]", "}");
+
+  if(nutritionString=="{}"){
+    nutritionString = "No_information_found";
+  }
+    return nutritionString;
+  }
+
+
+  List<String> parseIngredients(String ingredients) {
     List<String> ingredientList = ingredients.split(", ");
-    List<Ingredient> parsedIngredients = [];
+    List<String> parsedIngredients = [];
 
     for (String ingredientString in ingredientList) {
       List<String> ingredientData = ingredientString.split(" ");
 
       if (ingredientData.length >= 3) {
-        String quantity = ingredientData[0];
-        String unit = ingredientData[1];
-        String name = ingredientData.sublist(2).join(" ");
-        Ingredient ingredient = Ingredient(name: name, quantity: 5.0, unit: unit);
+        String ingredient = ingredientString;
         parsedIngredients.add(ingredient);
       }
     }
@@ -84,7 +93,7 @@ class _DetailsState extends State<Details> {
   }
 
   List<String> parseInstructions(String instructions) {
-    return instructions.split(", ");
+    return instructions.split(". ");
   }
 
   @override
@@ -193,16 +202,13 @@ class _DetailsState extends State<Details> {
             for (var ingredient in recipe.ingredients!)
               ListTile(
                 title: Text(
-                  ingredient.name,
+                 ingredient,
                   style: TextStyle(
                     fontFamily: AppFontFamily.fontFamily,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                trailing: Text(
-                  '${ingredient.quantity} ${ingredient.unit}',
-                  style: TextStyle(fontFamily: AppFontFamily.fontFamily),
-                ),
+
               ),
           SizedBox(height: 10),
           Text(
@@ -236,34 +242,8 @@ class _DetailsState extends State<Details> {
             ),
           ),
           SizedBox(height: 10),
-          if (recipe.nutritionInfo != null)
-            GridView.count(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
-              childAspectRatio: 2,
-              children: recipe.nutritionInfo!.entries
-                  .map(
-                    (entry) => Card(
-                  elevation: 0,
-                  color: Colors.grey.shade100,
-                  child: ListTile(
-                    title: Text(
-                      entry.key,
-                      style: TextStyle(fontFamily: AppFontFamily.fontFamily),
-                    ),
-                    trailing: Text(
-                      entry.value,
-                      style: TextStyle(
-                        fontFamily: AppFontFamily.fontFamily,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                  ),
-                ),
-              )
-                  .toList(),
-            ),
+          Text("${recipe.test}")
+
         ],
       ),
     );

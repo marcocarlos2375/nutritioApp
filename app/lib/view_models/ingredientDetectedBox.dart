@@ -44,13 +44,7 @@ class IngredientDetectedBox extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                   ),
                   SizedBox(width: 15),
-                  Text(
-                    'Score: $ingredientScore',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: AppFontFamily.fontFamily,
-                        fontWeight: FontWeight.w600),
-                  ),
+
               ])),
     );
   }

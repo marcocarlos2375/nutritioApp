@@ -1,5 +1,4 @@
-import 'dart:io';
-import 'package:app/views/searchResult_view.dart';
+
 import 'package:app/views/tensorflow_result_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,29 +6,27 @@ import 'package:image_picker/image_picker.dart';
 import 'package:app/utils/colors.dart';
 
 class SelectUploadImage extends StatefulWidget {
-  const SelectUploadImage({super.key});
+  const SelectUploadImage({Key? key}) : super(key: key);
 
   @override
-  State<SelectUploadImage> createState() => _SelectUploadImage();
+  State<SelectUploadImage> createState() => _SelectUploadImageState();
 }
 
-class _SelectUploadImage extends State<SelectUploadImage> {
-  //File? _image;
-  final _image = <XFile>[];
-  late Widget widgetHolder;
+class _SelectUploadImageState extends State<SelectUploadImage> {
+  final List<XFile> _images = [];
+  late Widget _widgetHolder;
 
   Future _pickImage(String sourceType, ImageSource source) async {
     try {
-      if(sourceType == "camera") {
+      if (sourceType == "camera") {
         final image = await ImagePicker().pickImage(source: source);
         if (image == null) return;
-        _image.add(image);
+        _images.add(image);
         setState(() {
-          widgetHolder = secondWidget();
+          _widgetHolder = _secondWidget();
         });
-
       } else {
-        final List<XFile> images = await ImagePicker().pickMultiImage();
+        final List<XFile>? images = await ImagePicker().pickMultiImage();
         if (images == null) return;
         setState(() {
           Navigator.of(context).push(
@@ -47,13 +44,14 @@ class _SelectUploadImage extends State<SelectUploadImage> {
 
   @override
   void initState() {
-    widgetHolder = firstWidget();
+    _widgetHolder = _firstWidget();
     super.initState();
   }
 
-  Widget firstWidget() {
+  Widget _firstWidget() {
     return Dialog(
       child: Container(
+        height: 300,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,7 +66,7 @@ class _SelectUploadImage extends State<SelectUploadImage> {
                   padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
                 ),
                 child: const Text(
-                  "Take pictures",
+                  "Take a Picture(s)",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 13,
@@ -86,23 +84,20 @@ class _SelectUploadImage extends State<SelectUploadImage> {
                   _pickImage("gallery", ImageSource.gallery);
                 },
                 style: ButtonStyle(
-                  side:
-                  MaterialStateProperty.resolveWith<BorderSide>(
-                        (states) =>
-                    const BorderSide(
+                  side: MaterialStateProperty.resolveWith<BorderSide>(
+                        (states) => const BorderSide(
                       color: Colors.green,
                       width: 1.0,
                     ),
                   ),
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white),
-                  padding:
-                  MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  backgroundColor:
+                  MaterialStateProperty.all<Color>(Colors.white),
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                     const EdgeInsets.fromLTRB(60, 20, 60, 20),
                   ),
                 ),
                 child: const Text(
-                  "Select Pictures",
+                  "Select Picture(s)",
                   style: TextStyle(
                     color: AppColors.primaryColor,
                     fontSize: 13,
@@ -117,9 +112,10 @@ class _SelectUploadImage extends State<SelectUploadImage> {
     );
   }
 
-  Widget secondWidget() {
+  Widget _secondWidget() {
     return Dialog(
       child: Container(
+        height: 300,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -134,7 +130,7 @@ class _SelectUploadImage extends State<SelectUploadImage> {
                   padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
                 ),
                 child: const Text(
-                  "Shoot more images",
+                  "Prendre plus de photos",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 13,
@@ -152,29 +148,26 @@ class _SelectUploadImage extends State<SelectUploadImage> {
                   setState(() {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => TensorflowResult(images: _image),
+                        builder: (context) => TensorflowResult(images: _images),
                       ),
                     );
                   });
                 },
                 style: ButtonStyle(
-                  side:
-                  MaterialStateProperty.resolveWith<BorderSide>(
-                        (states) =>
-                    const BorderSide(
+                  side: MaterialStateProperty.resolveWith<BorderSide>(
+                        (states) => const BorderSide(
                       color: Colors.green,
                       width: 1.0,
                     ),
                   ),
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white),
-                  padding:
-                  MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  backgroundColor:
+                  MaterialStateProperty.all<Color>(Colors.white),
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                     const EdgeInsets.fromLTRB(60, 20, 60, 20),
                   ),
                 ),
                 child: const Text(
-                  "No more needed",
+                  "Plus besoin",
                   style: TextStyle(
                     color: AppColors.primaryColor,
                     fontSize: 13,
@@ -191,6 +184,6 @@ class _SelectUploadImage extends State<SelectUploadImage> {
 
   @override
   Widget build(BuildContext context) {
-    return widgetHolder;
+    return _widgetHolder;
   }
 }

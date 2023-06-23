@@ -36,7 +36,7 @@ class _HomeSuggestionState extends State<HomeSuggestion> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240,
+      height: 270,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: products.map((product) {
